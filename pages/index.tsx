@@ -1,13 +1,15 @@
-import { Link } from '@/lib/router'
+import { Layout } from "@/components/layout/Layout"
+import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import { ArrowRight, Lightning, Briefcase, Article, Sparkle } from '@phosphor-icons/react'
 import { motion } from 'framer-motion'
 import { ParallaxHero } from '@/components/ParallaxHero'
-import logoIcon from '@/assets/images/icon_logo_only.png'
+// Image moved to public/icon_logo_only.png
 
-export function Home() {
+export default function Home() {
   return (
+    <<Layout>
     <div className="flex flex-col">
       <ParallaxHero className="min-h-[90vh] flex items-center justify-center relative overflow-hidden" intensity="medium">
         <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-accent/5" />
@@ -63,7 +65,7 @@ export function Home() {
                   className="relative z-10"
                 >
                   <img 
-                    src={logoIcon} 
+                    src="/icon_logo_only.png" 
                     alt="jose.technology" 
                     className="h-24 w-24 drop-shadow-2xl"
                   />
@@ -105,18 +107,18 @@ export function Home() {
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
             className="flex flex-col sm:flex-row gap-4 justify-center items-center"
           >
-            <Link to="/services">
+            <Link href="/services">
               <Button size="lg" className="group shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 transition-all duration-300">
                 View Services
                 <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>
-            <Link to="/portfolio">
+            <Link href="/portfolio">
               <Button size="lg" variant="outline" className="border-2 hover:bg-primary/5 transition-colors duration-300">
                 Hire Me
               </Button>
             </Link>
-            <Link to="/blog">
+            <Link href="/blog">
               <Button size="lg" variant="ghost" className="hover:bg-accent/10 transition-colors duration-300">
                 Read Blog
               </Button>
@@ -211,7 +213,7 @@ export function Home() {
                     </p>
                   </div>
                   
-                  <Link to={service.link} className="relative inline-flex items-center text-sm font-medium text-primary hover:text-accent transition-colors group/link">
+                  <Link href={service.link} className="relative inline-flex items-center text-sm font-medium text-primary hover:text-accent transition-colors group/link">
                     Learn more 
                     <ArrowRight className="ml-1 group-hover/link:translate-x-1 transition-transform" size={16} />
                   </Link>
@@ -249,13 +251,13 @@ export function Home() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
-            <Link to="/contact">
+            <Link href="/contact">
               <Button size="lg" className="shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 transition-all duration-300">
                 Get in Touch
                 <ArrowRight className="ml-2" />
               </Button>
             </Link>
-            <Link to="/portfolio">
+            <Link href="/portfolio">
               <Button size="lg" variant="outline" className="border-2 hover:bg-primary/5 transition-colors duration-300">
                 View Portfolio
               </Button>
@@ -264,5 +266,6 @@ export function Home() {
         </div>
       </section>
     </div>
-  )
+  </Layout>
+    )
 }

@@ -1,12 +1,14 @@
+import { Layout } from "@/components/layout/Layout"
 import { Card } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
-import { Link } from '@/lib/router'
+import Link from 'next/link'
 import { GithubLogo, LinkedinLogo, EnvelopeSimple, Briefcase, GraduationCap, Lightbulb } from '@phosphor-icons/react'
 import { ParallaxBackground } from '@/components/ParallaxHero'
-import logoIcon from '@/assets/images/icon_logo_only.png'
+// Image moved to public/icon_logo_only.png
 
-export function About() {
+export default function About() {
   return (
+    <<Layout>
     <div className="flex flex-col">
       <ParallaxBackground className="py-20" intensity="subtle">
         <div className="max-w-4xl mx-auto px-6">
@@ -22,7 +24,7 @@ export function About() {
             <div className="flex justify-center md:justify-end">
               <div className="w-48 h-48 rounded-3xl bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center shadow-xl border-2 border-primary/10">
                 <img 
-                  src={logoIcon} 
+                  src="/icon_logo_only.png" 
                   alt="jose.technology logo" 
                   className="w-32 h-32"
                 />
@@ -131,7 +133,7 @@ export function About() {
                   </a>
                 </div>
                 <div className="pt-4">
-                  <Link to="/contact">
+                  <Link href="/contact">
                     <Button size="lg">
                       Let's Work Together
                     </Button>
@@ -143,5 +145,6 @@ export function About() {
         </div>
       </section>
     </div>
-  )
+  </Layout>
+    )
 }
