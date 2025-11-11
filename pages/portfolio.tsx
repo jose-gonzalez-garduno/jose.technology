@@ -1,8 +1,9 @@
+import { Layout } from "@/components/layout/Layout"
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { DownloadSimple, EnvelopeSimple, LinkedinLogo, GithubLogo, CheckCircle } from '@phosphor-icons/react'
-import { Link } from '@/lib/router'
+import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { ParallaxHero } from '@/components/ParallaxHero'
 
@@ -37,8 +38,9 @@ const experience = [
   },
 ]
 
-export function Portfolio() {
+export default function Portfolio() {
   return (
+    <Layout>
     <div className="flex flex-col">
       <ParallaxHero className="py-24" intensity="medium">
         <div className="max-w-4xl mx-auto px-6">
@@ -66,7 +68,7 @@ export function Portfolio() {
                 <DownloadSimple className="mr-2 group-hover:translate-y-1 transition-transform" weight="bold" />
                 Download Resume
               </Button>
-              <Link to="/contact">
+              <Link href="/contact">
                 <Button size="lg" variant="outline" className="border-2 hover:bg-primary/5 transition-colors duration-300">
                   <EnvelopeSimple className="mr-2" weight="bold" />
                   Get in Touch
@@ -211,7 +213,7 @@ export function Portfolio() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
-            <Link to="/contact">
+            <Link href="/contact">
               <Button size="lg" className="shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 transition-all duration-300">
                 Schedule a Call
               </Button>
@@ -224,5 +226,6 @@ export function Portfolio() {
         </div>
       </section>
     </div>
-  )
+  </Layout>
+    )
 }

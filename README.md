@@ -1,6 +1,6 @@
 # jose.technology
 
-Professional technology consulting and AI services website for small businesses. Built with React, TypeScript, and Tailwind CSS.
+Professional technology consulting and AI services website for small businesses. Built with Next.js, React, TypeScript, and Tailwind CSS.
 
 ## 🚀 Features
 
@@ -26,11 +26,11 @@ Professional technology consulting and AI services website for small businesses.
 
 ## 🛠️ Tech Stack
 
-- **Frontend**: React 19 + TypeScript
+- **Frontend**: Next.js 16 + React 19 + TypeScript
 - **Styling**: Tailwind CSS v4 + shadcn/ui components
 - **Icons**: Phosphor Icons
 - **Animations**: Framer Motion
-- **Build Tool**: Vite
+- **Build Tool**: Next.js (Turbopack)
 - **Deployment**: Vercel (recommended)
 
 ## 💻 Local Development
@@ -45,8 +45,11 @@ npm run dev
 # Build for production
 npm run build
 
-# Preview production build
-npm run preview
+# Start production server
+npm run start
+
+# Run linter
+npm run lint
 ```
 
 ## 🌐 Deployment to Vercel
@@ -69,9 +72,9 @@ gh repo create jose.technology --public --source=. --remote=origin --push
 2. Click "Add New Project"
 3. Import your GitHub repository
 4. Configure build settings (auto-detected):
-   - **Framework Preset**: Vite
+   - **Framework Preset**: Next.js
    - **Build Command**: `npm run build`
-   - **Output Directory**: `dist`
+   - **Output Directory**: `.next`
 5. Click "Deploy"
 
 ### Step 3: Configure Domain (jose.technology)
@@ -124,16 +127,25 @@ Add to `/index.html` in the `<head>` section:
 
 The contact form currently logs to console. To connect a real email service:
 
-1. Create API endpoint (e.g., Vercel Serverless Function)
+1. Create an API route in `pages/api/contact.ts` (already created)
 2. Configure SendGrid or Mailgun with API keys
-3. Update form submission in `Contact.tsx`
+3. Add environment variables in Vercel or `.env.local`
+4. Update the form submission handler in `Contact.tsx` to call the API
 
-Example Vercel Serverless Function (`/api/contact.ts`):
+Example implementation in `pages/api/contact.ts`:
 
 ```typescript
-export default async function handler(req, res) {
-  // Send email using your preferred service
-  // Return success/error response
+import type { NextApiRequest, NextApiResponse } from "next";
+
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+  if (req.method === "POST") {
+    const { name, email, message } = req.body;
+    // Send email using your preferred service
+    // e.g., SendGrid, Mailgun, etc.
+    res.status(200).json({ message: "Form submission successful!" });
+  } else {
+    res.status(405).json({ message: "Method not allowed" });
+  }
 }
 ```
 

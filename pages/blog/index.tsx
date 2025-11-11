@@ -1,7 +1,8 @@
+import { Layout } from "@/components/layout/Layout"
 import { Card } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Calendar, Clock, ArrowRight } from '@phosphor-icons/react'
-import { Link } from '@/lib/router'
+import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { ParallaxBackground } from '@/components/ParallaxHero'
 
@@ -24,8 +25,9 @@ const blogPosts = [
   },
 ]
 
-export function Blog() {
+export default function Blog() {
   return (
+    <Layout>
     <div className="flex flex-col">
       <ParallaxBackground className="py-20" intensity="subtle">
         <div className="max-w-4xl mx-auto px-6 text-center space-y-6">
@@ -42,7 +44,7 @@ export function Blog() {
         <div className="max-w-4xl mx-auto px-6">
           <div className="space-y-8">
             {blogPosts.map((post) => (
-              <Link key={post.slug} to={`/blog/${post.slug}`}>
+              <Link key={post.slug} href={`/blog/${post.slug}`}>
                 <Card className="p-6 hover:shadow-lg transition-shadow cursor-pointer group">
                   <div className="space-y-4">
                     <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
@@ -85,7 +87,7 @@ export function Blog() {
               <p className="text-muted-foreground mb-6">
                 Subscribe to get notified when new articles are published.
               </p>
-              <Link to="/contact">
+              <Link href="/contact">
                 <Button>
                   Stay Updated
                 </Button>
@@ -95,5 +97,6 @@ export function Blog() {
         </div>
       </section>
     </div>
-  )
+  </Layout>
+    )
 }

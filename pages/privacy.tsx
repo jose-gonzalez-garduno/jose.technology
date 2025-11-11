@@ -1,5 +1,7 @@
-export function Privacy() {
+import { Layout } from "@/components/layout/Layout"
+export default function Privacy() {
   return (
+    <Layout>
     <div className="flex flex-col">
       <section className="py-20 bg-gradient-to-br from-primary/5 via-background to-accent/5">
         <div className="max-w-4xl mx-auto px-6">
@@ -112,5 +114,6 @@ export function Privacy() {
         </div>
       </section>
     </div>
-  )
+  </Layout>
+    )
 }

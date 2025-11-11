@@ -1,8 +1,11 @@
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Calendar, Clock, ArrowLeft } from '@phosphor-icons/react'
-import { Link } from '@/lib/router'
+import Link from 'next/link'
 import { ReactElement } from 'react'
+import { useRouter } from 'next/router'
+import { Layout } from '@/components/layout/Layout'
+import { GetStaticPaths, GetStaticProps } from 'next'
 
 const blogContent: Record<string, {
   title: string
@@ -63,7 +66,7 @@ const blogContent: Record<string, {
             I help small businesses identify AI opportunities, select the right tools, and implement 
             solutions that deliver real ROI.
           </p>
-          <Link to="/contact">
+          <Link href="/contact">
             <Button>Schedule a Consultation</Button>
           </Link>
         </div>
@@ -122,7 +125,7 @@ const blogContent: Record<string, {
             I've helped numerous businesses navigate system modernization successfully. Let's discuss 
             your specific situation and build a practical roadmap.
           </p>
-          <Link to="/contact">
+          <Link href="/contact">
             <Button>Get Expert Guidance</Button>
           </Link>
         </div>
@@ -135,33 +138,38 @@ interface BlogPostProps {
   slug: string
 }
 
-export function BlogPost({ slug }: BlogPostProps) {
-  const post = blogContent[slug]
+export default function BlogPost() {
+  const router = useRouter()
+  const { slug } = router.query
+  const post = blogContent[slug as string]
 
   if (!post) {
     return (
-      <div className="flex flex-col min-h-[60vh] items-center justify-center py-20">
-        <div className="max-w-2xl mx-auto px-6 text-center space-y-6">
-          <h1 className="text-4xl font-bold">Post Not Found</h1>
-          <p className="text-muted-foreground">
-            Sorry, we couldn't find the blog post you're looking for.
-          </p>
-          <Link to="/blog">
-            <Button>
-              <ArrowLeft className="mr-2" />
-              Back to Blog
-            </Button>
-          </Link>
+      <Layout>
+        <div className="flex flex-col min-h-[60vh] items-center justify-center py-20">
+          <div className="max-w-2xl mx-auto px-6 text-center space-y-6">
+            <h1 className="text-4xl font-bold">Post Not Found</h1>
+            <p className="text-muted-foreground">
+              Sorry, we couldn't find the blog post you're looking for.
+            </p>
+            <Link href="/blog">
+              <Button>
+                <ArrowLeft className="mr-2" />
+                Back to Blog
+              </Button>
+            </Link>
+          </div>
         </div>
-      </div>
+      </Layout>
     )
   }
 
   return (
+    <Layout>
     <div className="flex flex-col">
       <section className="py-12">
         <div className="max-w-3xl mx-auto px-6">
-          <Link to="/blog">
+          <Link href="/blog">
             <Button variant="ghost" size="sm" className="mb-8">
               <ArrowLeft className="mr-2" />
               Back to Blog
@@ -200,5 +208,18 @@ export function BlogPost({ slug }: BlogPostProps) {
         </div>
       </section>
     </div>
+    </Layout>
   )
+}
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const slugs = Object.keys(blogContent)
+  return {
+    paths: slugs.map(slug => ({ params: { slug } })),
+    fallback: false,
+  }
+}
+
+export const getStaticProps: GetStaticProps = async () => {
+  return { props: {} }
 }

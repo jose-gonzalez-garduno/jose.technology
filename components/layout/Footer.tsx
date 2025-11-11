@@ -1,6 +1,5 @@
-import { Link } from '@/lib/router'
+import Link from 'next/link'
 import { GithubLogo, LinkedinLogo, EnvelopeSimple } from '@phosphor-icons/react'
-import logoIcon from '@/assets/images/icon_logo_only.png'
 
 export function Footer() {
   const currentYear = new Date().getFullYear()
@@ -14,7 +13,7 @@ export function Footer() {
           <div className="space-y-4">
             <div className="flex items-center gap-3">
               <img 
-                src={logoIcon} 
+                src="/icon_logo_only.png"
                 alt="jose.technology" 
                 className="h-10 w-10"
               />
@@ -30,19 +29,19 @@ export function Footer() {
           <div className="space-y-4">
             <h4 className="font-semibold text-sm uppercase tracking-wider text-foreground">Services</h4>
             <nav className="flex flex-col gap-3">
-              <Link to="/services" className="text-sm text-muted-foreground hover:text-primary transition-colors group">
+              <Link href="/services" className="text-sm text-muted-foreground hover:text-primary transition-colors group">
                 <span className="relative">
                   AI Consulting
                   <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-primary group-hover:w-full transition-all duration-300" />
                 </span>
               </Link>
-              <Link to="/services" className="text-sm text-muted-foreground hover:text-primary transition-colors group">
+              <Link href="/services" className="text-sm text-muted-foreground hover:text-primary transition-colors group">
                 <span className="relative">
                   Systems Modernization
                   <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-primary group-hover:w-full transition-all duration-300" />
                 </span>
               </Link>
-              <Link to="/services" className="text-sm text-muted-foreground hover:text-primary transition-colors group">
+              <Link href="/services" className="text-sm text-muted-foreground hover:text-primary transition-colors group">
                 <span className="relative">
                   Dev Teams
                   <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-primary group-hover:w-full transition-all duration-300" />
@@ -54,19 +53,19 @@ export function Footer() {
           <div className="space-y-4">
             <h4 className="font-semibold text-sm uppercase tracking-wider text-foreground">Company</h4>
             <nav className="flex flex-col gap-3">
-              <Link to="/about" className="text-sm text-muted-foreground hover:text-primary transition-colors group">
+              <Link href="/about" className="text-sm text-muted-foreground hover:text-primary transition-colors group">
                 <span className="relative">
                   About
                   <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-primary group-hover:w-full transition-all duration-300" />
                 </span>
               </Link>
-              <Link to="/blog" className="text-sm text-muted-foreground hover:text-primary transition-colors group">
+              <Link href="/blog" className="text-sm text-muted-foreground hover:text-primary transition-colors group">
                 <span className="relative">
                   Blog
                   <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-primary group-hover:w-full transition-all duration-300" />
                 </span>
               </Link>
-              <Link to="/contact" className="text-sm text-muted-foreground hover:text-primary transition-colors group">
+              <Link href="/contact" className="text-sm text-muted-foreground hover:text-primary transition-colors group">
                 <span className="relative">
                   Contact
                   <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-primary group-hover:w-full transition-all duration-300" />
@@ -112,10 +111,10 @@ export function Footer() {
             © {currentYear} Jose Technology Solutions. All rights reserved.
           </p>
           <nav className="flex gap-8">
-            <Link to="/privacy" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+            <Link href="/privacy" className="text-sm text-muted-foreground hover:text-primary transition-colors">
               Privacy Policy
             </Link>
-            <Link to="/terms" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+            <Link href="/terms" className="text-sm text-muted-foreground hover:text-primary transition-colors">
               Terms of Service
             </Link>
           </nav>

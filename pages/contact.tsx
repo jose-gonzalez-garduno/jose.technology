@@ -1,3 +1,4 @@
+import { Layout } from "@/components/layout/Layout"
 import { useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -9,7 +10,7 @@ import { toast } from 'sonner'
 import { motion } from 'framer-motion'
 import { ParallaxHero } from '@/components/ParallaxHero'
 
-export function Contact() {
+export default function Contact() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -42,6 +43,7 @@ export function Contact() {
   }
 
   return (
+    <Layout>
     <div className="flex flex-col">
       <ParallaxHero className="py-24" intensity="medium">
         <div className="max-w-4xl mx-auto px-6 text-center">
@@ -224,5 +226,6 @@ export function Contact() {
         </div>
       </section>
     </div>
+    </Layout>
   )
 }
