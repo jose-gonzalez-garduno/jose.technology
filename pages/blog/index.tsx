@@ -27,7 +27,7 @@ const blogPosts = [
 
 export default function Blog() {
   return (
-    <<Layout>
+    <Layout>
     <div className="flex flex-col">
       <ParallaxBackground className="py-20" intensity="subtle">
         <div className="max-w-4xl mx-auto px-6 text-center space-y-6">
@@ -44,7 +44,7 @@ export default function Blog() {
         <div className="max-w-4xl mx-auto px-6">
           <div className="space-y-8">
             {blogPosts.map((post) => (
-              <Link key={post.slug} to={`/blog/${post.slug}`}>
+              <Link key={post.slug} href={`/blog/${post.slug}`}>
                 <Card className="p-6 hover:shadow-lg transition-shadow cursor-pointer group">
                   <div className="space-y-4">
                     <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">

@@ -40,7 +40,7 @@ const experience = [
 
 export default function Portfolio() {
   return (
-    <<Layout>
+    <Layout>
     <div className="flex flex-col">
       <ParallaxHero className="py-24" intensity="medium">
         <div className="max-w-4xl mx-auto px-6">

@@ -71,7 +71,7 @@ const services = [
 
 export default function Services() {
   return (
-    <<Layout>
+    <Layout>
     <div className="flex flex-col">
       <ParallaxHero className="py-24" intensity="medium">
         <div className="max-w-5xl mx-auto px-6 text-center">

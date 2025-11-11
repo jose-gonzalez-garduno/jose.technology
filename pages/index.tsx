@@ -9,7 +9,7 @@ import { ParallaxHero } from '@/components/ParallaxHero'
 
 export default function Home() {
   return (
-    <<Layout>
+    <Layout>
     <div className="flex flex-col">
       <ParallaxHero className="min-h-[90vh] flex items-center justify-center relative overflow-hidden" intensity="medium">
         <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-accent/5" />

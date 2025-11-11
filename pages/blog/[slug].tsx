@@ -66,7 +66,7 @@ const blogContent: Record<string, {
             I help small businesses identify AI opportunities, select the right tools, and implement 
             solutions that deliver real ROI.
           </p>
-          <Link to="/contact">
+          <Link href="/contact">
             <Button>Schedule a Consultation</Button>
           </Link>
         </div>
@@ -125,7 +125,7 @@ const blogContent: Record<string, {
             I've helped numerous businesses navigate system modernization successfully. Let's discuss 
             your specific situation and build a practical roadmap.
           </p>
-          <Link to="/contact">
+          <Link href="/contact">
             <Button>Get Expert Guidance</Button>
           </Link>
         </div>
@@ -169,7 +169,7 @@ export default function BlogPost() {
     <div className="flex flex-col">
       <section className="py-12">
         <div className="max-w-3xl mx-auto px-6">
-          <Link to="/blog">
+          <Link href="/blog">
             <Button variant="ghost" size="sm" className="mb-8">
               <ArrowLeft className="mr-2" />
               Back to Blog
@@ -208,5 +208,18 @@ export default function BlogPost() {
         </div>
       </section>
     </div>
+    </Layout>
   )
+}
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const slugs = Object.keys(blogContent)
+  return {
+    paths: slugs.map(slug => ({ params: { slug } })),
+    fallback: false,
+  }
+}
+
+export const getStaticProps: GetStaticProps = async () => {
+  return { props: {} }
 }

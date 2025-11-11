@@ -43,6 +43,7 @@ export default function Contact() {
   }
 
   return (
+    <Layout>
     <div className="flex flex-col">
       <ParallaxHero className="py-24" intensity="medium">
         <div className="max-w-4xl mx-auto px-6 text-center">
@@ -225,5 +226,6 @@ export default function Contact() {
         </div>
       </section>
     </div>
+    </Layout>
   )
 }

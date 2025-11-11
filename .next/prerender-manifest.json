@@ -1,0 +1,53 @@
+{
+  "version": 4,
+  "routes": {
+    "/blog/getting-started-with-ai": {
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/blog/[slug]",
+      "dataRoute": "/_next/data/Gn-KUvEIz0qbW8OH3S1sj/blog/getting-started-with-ai.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/blog/modernizing-legacy-systems": {
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/blog/[slug]",
+      "dataRoute": "/_next/data/Gn-KUvEIz0qbW8OH3S1sj/blog/modernizing-legacy-systems.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    }
+  },
+  "dynamicRoutes": {
+    "/blog/[slug]": {
+      "routeRegex": "^/blog/([^/]+?)(?:/)?$",
+      "dataRoute": "/_next/data/Gn-KUvEIz0qbW8OH3S1sj/blog/[slug].json",
+      "fallback": false,
+      "dataRouteRegex": "^/_next/data/Gn\\-KUvEIz0qbW8OH3S1sj/blog/([^/]+?)\\.json$",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    }
+  },
+  "notFoundRoutes": [],
+  "preview": {
+    "previewModeId": "8c3cba954f975347ce497488d051ed78",
+    "previewModeSigningKey": "92edd850e0ff337e0bc7cfb053ede6a36cd4bb5930eb514a44bed36ad17c84f1",
+    "previewModeEncryptionKey": "cb10d724c3fda55cc44adf4acb6d57eb01b7500e6d8a284db71631d3a0ae8932"
+  }
+}

@@ -8,7 +8,7 @@ import { ParallaxBackground } from '@/components/ParallaxHero'
 
 export default function About() {
   return (
-    <<Layout>
+    <Layout>
     <div className="flex flex-col">
       <ParallaxBackground className="py-20" intensity="subtle">
         <div className="max-w-4xl mx-auto px-6">
