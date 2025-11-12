@@ -1,6 +1,6 @@
 import { ComponentProps } from "react"
-import ChevronLeft from "lucide-react/dist/esm/icons/chevron-left"
-import ChevronRight from "lucide-react/dist/esm/icons/chevron-right"
+import { ChevronLeft } from "lucide-react"
+import { ChevronRight } from "lucide-react"
 import { DayPicker } from "react-day-picker"
 
 import { cn } from "@/lib/utils"
@@ -59,12 +59,16 @@ function Calendar({
         ...classNames,
       }}
       components={{
-        PreviousMonthButton: ({ className, ...props }) => (
-          <ChevronLeft className={cn("size-4", className)} {...props} />
-        ),
-        NextMonthButton: ({ className, ...props }) => (
-          <ChevronRight className={cn("size-4", className)} {...props} />
-        ),
+        PreviousMonthButton: ({ className, ...props }) => {
+          // eslint-disable-next-line @typescript-eslint/no-unused-vars
+          const { children, ...buttonProps } = props as any;
+          return <ChevronLeft className={cn("size-4", className)} />;
+        },
+        NextMonthButton: ({ className, ...props }) => {
+          // eslint-disable-next-line @typescript-eslint/no-unused-vars
+          const { children, ...buttonProps } = props as any;
+          return <ChevronRight className={cn("size-4", className)} />;
+        },
       }}
       {...props}
     />
