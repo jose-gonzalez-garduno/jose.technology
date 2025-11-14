@@ -41,7 +41,7 @@ export default function Portfolio() {
   return (
     <Layout>
       {/* Hero Section - Blueprint Style */}
-      <section className="relative py-24 bg-white overflow-hidden">
+      <section className="relative py-24 bg-gradient-subtle overflow-hidden">
         <div className="absolute inset-0 blueprint-grid opacity-40" />
         
         <div className="max-w-4xl mx-auto px-6 relative z-10">
@@ -79,7 +79,7 @@ export default function Portfolio() {
       </section>
 
       {/* Skills Section - Blueprint Style */}
-      <section className="py-20 bg-[#F8FAFB]">
+      <section className="py-20 bg-white">
         <div className="max-w-6xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -110,8 +110,8 @@ export default function Portfolio() {
       </section>
 
       {/* Experience Section - Blueprint Style */}
-      <section className="py-20 bg-white relative overflow-hidden">
-        <div className="absolute inset-0 blueprint-grid opacity-20" />
+      <section className="py-20 bg-gradient-subtle relative overflow-hidden">
+        <div className="absolute inset-0 blueprint-grid opacity-30" />
         
         <div className="max-w-6xl mx-auto px-6 relative z-10">
           <h2 className="text-4xl font-bold text-[#2D2D2D] mb-12">Professional Experience</h2>
@@ -152,7 +152,7 @@ export default function Portfolio() {
       </section>
 
       {/* Connect Section - Blueprint Style */}
-      <section className="py-20 bg-[#F8FAFB]">
+      <section className="py-20 bg-white">
         <div className="max-w-6xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -195,8 +195,8 @@ export default function Portfolio() {
       </section>
 
       {/* CTA Section - Blueprint Style */}
-      <section className="py-24 bg-white relative overflow-hidden">
-        <div className="absolute inset-0 blueprint-grid opacity-30" />
+      <section className="py-24 bg-gradient-cyan relative overflow-hidden">
+        <div className="absolute inset-0 blueprint-grid opacity-40" />
         
         <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
           <motion.div

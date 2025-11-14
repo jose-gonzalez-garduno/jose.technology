@@ -3,38 +3,44 @@ import Link from 'next/link';
 import { Layout } from '@/components/layout/Layout';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
+import { Boxes } from '@/components/ui/background-boxes';
 import { ArrowRight, CheckCircle, Code, Palette, Rocket } from '@phosphor-icons/react';
 
 export default function Home() {
   return (
     <Layout>
-      {/* Hero Section - Blueprint Style */}
-      <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden bg-white">
-        {/* Blueprint Grid Background */}
-        <div className="absolute inset-0 blueprint-grid opacity-40" />
+      {/* Hero Section - Blueprint Style with Animated Background */}
+      <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-cyan-950">
+        {/* Animated Background Boxes */}
+        <div className="absolute inset-0 w-full h-full">
+          <Boxes />
+        </div>
         
-        <div className="relative z-10 max-w-6xl mx-auto px-6 py-20 text-center">
+        {/* Overlay for better text readability */}
+        <div className="absolute inset-0 w-full h-full bg-gradient-to-b from-slate-900/40 via-transparent to-slate-900/60 z-10 pointer-events-none" />
+        
+        <div className="relative z-20 max-w-6xl mx-auto px-6 py-20 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="space-y-8"
+            className="space-y-8 backdrop-blur-md bg-slate-900/60 rounded-3xl p-12 shadow-2xl border border-cyan-500/20 ring-1 ring-cyan-500/10"
           >
             {/* Trust Indicator */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#00A8E8]/10 border border-[#00A8E8]/20">
-              <div className="w-2 h-2 rounded-full bg-[#00A8E8] animate-pulse" />
-              <span className="text-sm font-medium text-[#2D2D2D]">Available for Projects</span>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyan-500/20 border border-cyan-400/30 backdrop-blur-sm">
+              <div className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse shadow-lg shadow-cyan-400/50" />
+              <span className="text-sm font-medium text-cyan-100">Available for Projects</span>
             </div>
 
             {/* Hero Headline */}
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-[#2D2D2D] leading-tight">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-tight">
               Technology Solutions
               <br />
-              <span className="text-[#00A8E8]">Built for Growth</span>
+              <span className="bg-gradient-to-r from-cyan-400 via-cyan-300 to-cyan-500 bg-clip-text text-transparent">Built for Growth</span>
             </h1>
 
             {/* Subheadline */}
-            <p className="text-xl md:text-2xl text-[#4B5563] max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl md:text-2xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
               Full-stack development, technical consulting, and digital solutions 
               that help small businesses scale efficiently.
             </p>
@@ -47,13 +53,13 @@ export default function Home() {
               className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4"
             >
               <Link href="/services">
-                <Button size="lg" className="bg-[#00A8E8] hover:bg-[#0096D1] text-white shadow-lg hover:shadow-xl transition-all duration-300 group">
+                <Button size="lg" className="bg-cyan-500 hover:bg-cyan-400 text-slate-900 font-semibold shadow-lg shadow-cyan-500/30 hover:shadow-xl hover:shadow-cyan-400/40 transition-all duration-300 group">
                   View Services
                   <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" weight="bold" />
                 </Button>
               </Link>
               <Link href="/contact">
-                <Button size="lg" variant="outline" className="border-2 border-[#00A8E8] text-[#00A8E8] hover:bg-[#00A8E8]/5 transition-colors duration-300">
+                <Button size="lg" variant="outline" className="border-2 border-cyan-400 text-cyan-300 hover:bg-cyan-500/10 hover:text-cyan-200 backdrop-blur-sm transition-colors duration-300">
                   Get in Touch
                 </Button>
               </Link>
@@ -64,15 +70,15 @@ export default function Home() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="flex items-center justify-center gap-8 pt-8 text-sm text-[#6B7280]"
+              className="flex items-center justify-center gap-8 pt-8 text-sm text-slate-400"
             >
               <div className="flex items-center gap-2">
-                <CheckCircle weight="fill" className="text-[#00A8E8]" size={20} />
+                <CheckCircle weight="fill" className="text-cyan-400" size={20} />
                 <span>Trusted by Small Businesses</span>
               </div>
-              <div className="hidden sm:block w-px h-4 bg-[#E5E7EB]" />
+              <div className="hidden sm:block w-px h-4 bg-slate-600" />
               <div className="hidden sm:flex items-center gap-2">
-                <CheckCircle weight="fill" className="text-[#00A8E8]" size={20} />
+                <CheckCircle weight="fill" className="text-cyan-400" size={20} />
                 <span>Full-Stack Expertise</span>
               </div>
             </motion.div>
@@ -81,8 +87,8 @@ export default function Home() {
       </section>
 
       {/* Services Section - Blueprint Style */}
-      <section className="py-24 bg-[#F8FAFB] relative overflow-hidden">
-        <div className="absolute inset-0 blueprint-grid opacity-20" />
+      <section className="py-24 bg-gradient-subtle relative overflow-hidden">
+        <div className="absolute inset-0 blueprint-grid opacity-30" />
         
         <div className="max-w-6xl mx-auto px-6 relative z-10">
           <motion.div 
@@ -159,8 +165,8 @@ export default function Home() {
       </section>
 
       {/* Final CTA Section - Blueprint Style */}
-      <section className="py-24 bg-white relative overflow-hidden">
-        <div className="absolute inset-0 blueprint-grid opacity-30" />
+      <section className="py-24 bg-gradient-cyan relative overflow-hidden">
+        <div className="absolute inset-0 blueprint-grid opacity-40" />
         
         <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
           <motion.div
@@ -170,20 +176,20 @@ export default function Home() {
             transition={{ duration: 0.6 }}
             className="space-y-8"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-[#2D2D2D]">
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-900">
               Ready to Start Your Project?
             </h2>
-            <p className="text-xl text-[#6B7280] max-w-2xl mx-auto">
+            <p className="text-xl text-slate-700 max-w-2xl mx-auto">
               Let's discuss how I can help bring your ideas to life with modern, scalable technology solutions.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
               <Link href="/contact">
-                <Button size="lg" className="bg-[#00A8E8] hover:bg-[#0096D1] text-white shadow-lg hover:shadow-xl transition-all duration-300">
+                <Button size="lg" className="bg-slate-900 hover:bg-slate-800 text-white shadow-lg hover:shadow-xl transition-all duration-300">
                   Schedule a Consultation
                 </Button>
               </Link>
               <Link href="/portfolio">
-                <Button size="lg" variant="outline" className="border-2 border-[#2D2D2D] text-[#2D2D2D] hover:bg-[#2D2D2D]/5 transition-colors duration-300">
+                <Button size="lg" variant="outline" className="border-2 border-slate-900 text-slate-900 hover:bg-slate-900/5 transition-colors duration-300">
                   View Portfolio
                 </Button>
               </Link>

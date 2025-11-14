@@ -62,7 +62,7 @@ export default function Services() {
   return (
     <Layout>
       {/* Hero Section - Blueprint Style */}
-      <section className="relative py-24 bg-white overflow-hidden">
+      <section className="relative py-24 bg-gradient-subtle overflow-hidden">
         <div className="absolute inset-0 blueprint-grid opacity-40" />
         
         <div className="max-w-5xl mx-auto px-6 text-center relative z-10">
@@ -85,8 +85,8 @@ export default function Services() {
       </section>
 
       {/* Services Section - Blueprint Style */}
-      <section className="py-24 bg-[#F8FAFB] relative">
-        <div className="absolute inset-0 blueprint-grid opacity-20" />
+      <section className="py-24 bg-gradient-subtle relative">
+        <div className="absolute inset-0 blueprint-grid opacity-30" />
         
         <div className="max-w-6xl mx-auto px-6 relative z-10">
           <div className="space-y-12">
@@ -98,28 +98,28 @@ export default function Services() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
               >
-                <Card className="p-10 bg-white border-2 border-transparent hover:border-[#00A8E8]/20 hover:shadow-lg transition-all duration-300">
+                <Card className="p-10 bg-white/90 backdrop-blur-sm border-2 border-slate-200 hover:border-cyan-400/50 hover:shadow-xl hover:shadow-cyan-500/10 transition-all duration-300">
                   <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
                     <div className="space-y-6">
-                      <div className="w-16 h-16 rounded-xl bg-[#00A8E8]/10 flex items-center justify-center">
-                        <service.icon size={32} className="text-[#00A8E8]" weight="duotone" />
+                      <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-cyan-500 to-cyan-600 flex items-center justify-center shadow-lg shadow-cyan-500/30">
+                        <service.icon size={32} className="text-white" weight="duotone" />
                       </div>
-                      <h2 className="text-3xl font-bold text-[#2D2D2D]">{service.title}</h2>
-                      <p className="text-[#6B7280] text-lg leading-relaxed">{service.description}</p>
+                      <h2 className="text-3xl font-bold text-slate-900">{service.title}</h2>
+                      <p className="text-slate-600 text-lg leading-relaxed">{service.description}</p>
                     </div>
                     
                     <div className="lg:col-span-2 space-y-6">
-                      <h3 className="font-semibold text-xl text-[#00A8E8]">Key Outcomes</h3>
+                      <h3 className="font-semibold text-xl text-cyan-600">Key Outcomes</h3>
                       <ul className="space-y-4">
                         {service.outcomes.map((outcome, outcomeIndex) => (
                           <li 
                             key={outcomeIndex} 
                             className="flex items-start gap-4"
                           >
-                            <div className="w-6 h-6 rounded-full bg-[#00A8E8] flex items-center justify-center flex-shrink-0 mt-1">
+                            <div className="w-6 h-6 rounded-full bg-gradient-to-br from-cyan-500 to-cyan-600 flex items-center justify-center flex-shrink-0 mt-1 shadow-md shadow-cyan-500/30">
                               <CheckCircle size={14} className="text-white" weight="fill" />
                             </div>
-                            <span className="text-[#2D2D2D] text-lg leading-relaxed">{outcome}</span>
+                            <span className="text-slate-800 text-lg leading-relaxed">{outcome}</span>
                           </li>
                         ))}
                       </ul>
@@ -133,8 +133,8 @@ export default function Services() {
       </section>
 
       {/* CTA Section - Blueprint Style */}
-      <section className="py-24 bg-white relative overflow-hidden">
-        <div className="absolute inset-0 blueprint-grid opacity-30" />
+      <section className="py-24 bg-gradient-cyan relative overflow-hidden">
+        <div className="absolute inset-0 blueprint-grid opacity-40" />
         
         <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
           <motion.div

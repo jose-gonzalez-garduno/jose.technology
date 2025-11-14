@@ -44,7 +44,7 @@ export default function Contact() {
   return (
     <Layout>
       {/* Hero Section - Blueprint Style */}
-      <section className="relative py-24 bg-white overflow-hidden">
+      <section className="relative py-24 bg-gradient-subtle overflow-hidden">
         <div className="absolute inset-0 blueprint-grid opacity-40" />
         
         <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
@@ -66,7 +66,7 @@ export default function Contact() {
       </section>
 
       {/* Contact Form Section - Blueprint Style */}
-      <section className="py-24 bg-[#F8FAFB]">
+      <section className="py-24 bg-white">
         <div className="max-w-5xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <motion.div 

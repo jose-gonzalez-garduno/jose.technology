@@ -4,7 +4,7 @@ import { Badge } from '@/components/ui/badge'
 import { Calendar, Clock, ArrowRight } from '@phosphor-icons/react'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
-import { ParallaxBackground } from '@/components/ParallaxHero'
+import { motion } from 'framer-motion'
 
 const blogPosts = [
   {
@@ -28,75 +28,98 @@ const blogPosts = [
 export default function Blog() {
   return (
     <Layout>
-    <div className="flex flex-col">
-      <ParallaxBackground className="py-20" intensity="subtle">
-        <div className="max-w-4xl mx-auto px-6 text-center space-y-6">
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
-            Blog & Technical Insights
-          </h1>
-          <p className="text-lg md:text-xl text-muted-foreground">
-            Thoughts on AI, modern development practices, and technology strategy for business leaders.
-          </p>
+      {/* Hero Section - Blueprint Style */}
+      <section className="relative py-20 bg-gradient-subtle overflow-hidden">
+        <div className="absolute inset-0 blueprint-grid opacity-40" />
+        
+        <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="space-y-6"
+          >
+            <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-[#2D2D2D]">
+              Blog & Technical Insights
+            </h1>
+            <p className="text-lg md:text-xl text-[#6B7280] leading-relaxed">
+              Thoughts on AI, modern development practices, and technology strategy for business leaders.
+            </p>
+          </motion.div>
         </div>
-      </ParallaxBackground>
+      </section>
 
-      <section className="py-20">
+      {/* Blog Posts Section - Blueprint Style */}
+      <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-6">
           <div className="space-y-8">
-            {blogPosts.map((post) => (
-              <Link key={post.slug} href={`/blog/${post.slug}`}>
-                <Card className="p-6 hover:shadow-lg transition-shadow cursor-pointer group">
-                  <div className="space-y-4">
-                    <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
-                      <Badge variant="secondary">{post.category}</Badge>
-                      <div className="flex items-center gap-1">
-                        <Calendar size={16} />
-                        <span>{new Date(post.date).toLocaleDateString('en-US', { 
-                          year: 'numeric', 
-                          month: 'long', 
-                          day: 'numeric' 
-                        })}</span>
+            {blogPosts.map((post, index) => (
+              <motion.div
+                key={post.slug}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+              >
+                <Link href={`/blog/${post.slug}`}>
+                  <Card className="p-6 bg-white border-2 border-transparent hover:border-[#00A8E8]/20 hover:shadow-lg transition-all duration-300 cursor-pointer group">
+                    <div className="space-y-4">
+                      <div className="flex flex-wrap items-center gap-4 text-sm text-[#6B7280]">
+                        <Badge className="bg-[#00A8E8]/10 text-[#00A8E8] border-[#00A8E8]/20">{post.category}</Badge>
+                        <div className="flex items-center gap-1">
+                          <Calendar size={16} />
+                          <span>{new Date(post.date).toLocaleDateString('en-US', { 
+                            year: 'numeric', 
+                            month: 'long', 
+                            day: 'numeric' 
+                          })}</span>
+                        </div>
+                        <div className="flex items-center gap-1">
+                          <Clock size={16} />
+                          <span>{post.readTime}</span>
+                        </div>
                       </div>
-                      <div className="flex items-center gap-1">
-                        <Clock size={16} />
-                        <span>{post.readTime}</span>
+                      
+                      <h2 className="text-2xl font-semibold text-[#2D2D2D] group-hover:text-[#00A8E8] transition-colors">
+                        {post.title}
+                      </h2>
+                      
+                      <p className="text-[#6B7280] leading-relaxed">
+                        {post.excerpt}
+                      </p>
+                      
+                      <div className="flex items-center text-[#00A8E8] font-medium">
+                        Read article
+                        <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={16} weight="bold" />
                       </div>
                     </div>
-                    
-                    <h2 className="text-2xl font-semibold group-hover:text-primary transition-colors">
-                      {post.title}
-                    </h2>
-                    
-                    <p className="text-muted-foreground">
-                      {post.excerpt}
-                    </p>
-                    
-                    <div className="flex items-center text-primary font-medium">
-                      Read article
-                      <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={16} />
-                    </div>
-                  </div>
-                </Card>
-              </Link>
+                  </Card>
+                </Link>
+              </motion.div>
             ))}
           </div>
 
-          <div className="mt-12 text-center">
-            <Card className="p-12 bg-muted/30">
-              <h3 className="text-2xl font-semibold mb-4">More Content Coming Soon</h3>
-              <p className="text-muted-foreground mb-6">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="mt-12"
+          >
+            <Card className="p-12 bg-white border-2 border-[#00A8E8]/10 text-center">
+              <h3 className="text-2xl font-semibold text-[#2D2D2D] mb-4">More Content Coming Soon</h3>
+              <p className="text-[#6B7280] mb-6 leading-relaxed">
                 Subscribe to get notified when new articles are published.
               </p>
               <Link href="/contact">
-                <Button>
+                <Button className="bg-[#00A8E8] hover:bg-[#0096D1] text-white shadow-lg hover:shadow-xl transition-all duration-300">
                   Stay Updated
                 </Button>
               </Link>
             </Card>
-          </div>
+          </motion.div>
         </div>
       </section>
-    </div>
-  </Layout>
-    )
+    </Layout>
+  )
 }
