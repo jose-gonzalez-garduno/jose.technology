@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import { Lightning, Rocket, Users, GitBranch, GraduationCap, ArrowRight, CheckCircle } from '@phosphor-icons/react'
-import { motion } from 'framer-motion'
+import { motion, useReducedMotion } from 'framer-motion'
 
 const services = [
   {
@@ -42,6 +42,8 @@ const services = [
 ]
 
 export default function Services() {
+  const prefersReducedMotion = useReducedMotion();
+  
   return (
     <Layout>
       {/* Hero Section - Blueprint Style */}
@@ -50,9 +52,9 @@ export default function Services() {
         
         <div className="max-w-5xl mx-auto px-6 text-center relative z-10">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            initial={prefersReducedMotion ? undefined : { opacity: 0, y: 20 }}
+            animate={prefersReducedMotion ? undefined : { opacity: 1, y: 0 }}
+            transition={{ duration: 0.3 }}
             className="space-y-6"
           >
             <h1 className="text-5xl md:text-6xl font-bold tracking-tight text-[#2D2D2D]">
@@ -75,10 +77,10 @@ export default function Services() {
             {services.map((service, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
+                initial={prefersReducedMotion ? undefined : { opacity: 0, y: 30 }}
+                whileInView={prefersReducedMotion ? undefined : { opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.3, delay: index * 0.05 }}
               >
                 <Card className="p-10 bg-white/90 backdrop-blur-sm border-2 border-slate-200 hover:border-cyan-400/50 hover:shadow-xl hover:shadow-cyan-500/10 transition-all duration-300">
                   <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
@@ -120,10 +122,10 @@ export default function Services() {
         
         <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            initial={prefersReducedMotion ? undefined : { opacity: 0, y: 20 }}
+            whileInView={prefersReducedMotion ? undefined : { opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.3 }}
             className="space-y-8"
           >
             <h2 className="text-4xl md:text-5xl font-bold text-[#2D2D2D]">

@@ -2,10 +2,12 @@ import { Layout } from "@/components/layout/Layout"
 import { Card } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
-import { motion } from 'framer-motion'
+import { motion, useReducedMotion } from 'framer-motion'
 import { GithubLogo, LinkedinLogo, EnvelopeSimple, Briefcase, GraduationCap, Lightbulb, ArrowRight } from '@phosphor-icons/react'
 
 export default function About() {
+  const prefersReducedMotion = useReducedMotion();
+  
   return (
     <Layout>
       {/* Hero Section - Blueprint Style */}
@@ -51,7 +53,7 @@ export default function About() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.6 }}
             className="space-y-6"
           >
@@ -87,7 +89,7 @@ export default function About() {
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.6 }}
             className="text-3xl md:text-4xl font-bold text-[#2D2D2D] mb-12 text-center"
           >
@@ -116,8 +118,8 @@ export default function About() {
                 key={item.title}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.3, delay: index * 0.05 }}
               >
                 <Card className="p-8 h-full bg-white border-2 border-transparent hover:border-[#00A8E8]/20 transition-all duration-300 hover:shadow-lg">
                   <div className="w-14 h-14 rounded-xl bg-[#00A8E8]/10 flex items-center justify-center mb-6">
@@ -142,7 +144,7 @@ export default function About() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.6 }}
             className="space-y-6"
           >
@@ -163,7 +165,7 @@ export default function About() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-3xl md:text-4xl font-bold text-[#2D2D2D] mb-8">Connect With Me</h2>
