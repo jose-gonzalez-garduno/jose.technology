@@ -108,12 +108,9 @@ export default function Blog() {
           >
             <Card className="p-12 bg-white border-2 border-[#00A8E8]/10 text-center">
               <h3 className="text-2xl font-semibold text-[#2D2D2D] mb-4">More Content Coming Soon</h3>
-              <p className="text-[#6B7280] mb-6 leading-relaxed">
-                Subscribe to get notified when new articles are published.
-              </p>
               <Link href="/contact">
-                <Button className="bg-[#00A8E8] hover:bg-[#0096D1] text-white shadow-lg hover:shadow-xl transition-all duration-300">
-                  Stay Updated
+                <Button className="bg-[#00A8E8] hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-600 text-white shadow-lg hover:shadow-2xl hover:shadow-blue-500/50 hover:scale-110 transition-all duration-300">
+                  Get Connected
                 </Button>
               </Link>
             </Card>

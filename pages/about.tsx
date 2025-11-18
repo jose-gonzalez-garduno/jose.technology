@@ -24,7 +24,7 @@ export default function About() {
                 About Jose Technology Solutions
               </h1>
               <p className="text-xl text-[#6B7280] leading-relaxed">
-                Helping small businesses leverage modern technology and AI to compete, scale, and succeed.
+                We help small businesses modernize the systems they depend on, focusing on automation and clarity rather than chasing trends.
               </p>
             </motion.div>
             <motion.div 
@@ -136,6 +136,27 @@ export default function About() {
         </div>
       </section>
 
+      {/* Responsible AI Section */}
+      <section id="responsible-ai" className="py-20 bg-white">
+        <div className="max-w-4xl mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="space-y-6"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-[#2D2D2D]">Responsible Use of AI</h2>
+            <Card className="p-8 bg-gradient-to-br from-cyan-50 to-blue-50 border-2 border-cyan-200">
+              <p className="text-lg text-[#4B5563] leading-relaxed">
+                We apply AI only where it improves reliability or reduces manual load—no black-box promises or unnecessary data risk. 
+                Every AI implementation is transparent, business-aligned, and designed with security and ethics in mind.
+              </p>
+            </Card>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Connect Section - Blueprint Style */}
       <section className="py-20 bg-gradient-cyan">
         <div className="max-w-4xl mx-auto px-6">
@@ -147,14 +168,14 @@ export default function About() {
           >
             <h2 className="text-3xl md:text-4xl font-bold text-[#2D2D2D] mb-8">Connect With Me</h2>
             <Card className="p-8 bg-white border-2 border-[#00A8E8]/10">
-              <div className="space-y-6">
+              <div className="space-y-6 text-center">
                 <p className="text-lg text-[#6B7280] leading-relaxed">
                   I'm always interested in connecting with fellow technologists, potential clients, 
                   and anyone passionate about using technology to solve real problems.
                 </p>
-                <div className="flex flex-wrap gap-6">
+                <div className="flex flex-wrap gap-6 justify-center">
                   <a
-                    href="https://github.com/josegonzalez"
+                    href="https://github.com/jose-gonzalez-garduno"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 text-[#6B7280] hover:text-[#00A8E8] transition-colors"
@@ -179,9 +200,9 @@ export default function About() {
                     <span className="font-medium">contact@jose.technology</span>
                   </a>
                 </div>
-                <div className="pt-4">
+                <div className="pt-4 flex justify-center">
                   <Link href="/contact">
-                    <Button size="lg" className="bg-[#00A8E8] hover:bg-[#0096D1] text-white shadow-lg hover:shadow-xl transition-all duration-300 group">
+                    <Button size="lg" className="bg-[#00A8E8] hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-600 text-white shadow-lg hover:shadow-2xl hover:shadow-blue-500/50 hover:scale-110 transition-all duration-300 group">
                       Let's Work Together
                       <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" weight="bold" />
                     </Button>

@@ -7,10 +7,10 @@ Professional technology consulting and AI services website for small businesses.
 - **Modern, Responsive Design** — Clean, accessible UI that works beautifully on all devices
 - **Service Showcase** — Five core service offerings with clear value propositions
 - **Portfolio/Resume** — Professional experience, skills, and downloadable resume
-- **Technical Blog** — Thought leadership content with MDX support
-- **Contact & Scheduling** — Contact form and Calendly integration for bookings
+- **Technical Blog** — Thought leadership content with static blog posts
+- **Contact & Scheduling** — Fully functional contact form with Resend email service and Calendly integration
 - **SEO Optimized** — Meta tags, semantic HTML, and performance-focused
-- **Privacy-First Analytics** — Plausible Analytics integration (placeholder)
+- **Production-Ready** — Error boundaries, form validation, rate limiting, and security best practices
 
 ## 📋 Pages
 
@@ -20,7 +20,7 @@ Professional technology consulting and AI services website for small businesses.
 - `/blog` — Blog post index
 - `/blog/:slug` — Individual blog posts
 - `/about` — Personal bio and company information
-- `/contact` — Contact form and scheduling
+- `/contact` — Contact form with email notifications and Calendly scheduling
 - `/privacy` — Privacy policy
 - `/terms` — Terms of service
 
@@ -30,7 +30,10 @@ Professional technology consulting and AI services website for small businesses.
 - **Styling**: Tailwind CSS v4 + shadcn/ui components
 - **Icons**: Phosphor Icons
 - **Animations**: Framer Motion
-- **Build Tool**: Next.js (Turbopack)
+- **Forms**: React Hook Form + Zod validation
+- **Email**: Resend API
+- **Notifications**: Sonner (toast notifications)
+- **Error Handling**: React Error Boundary
 - **Deployment**: Vercel (recommended)
 
 ## 💻 Local Development
@@ -39,6 +42,12 @@ Professional technology consulting and AI services website for small businesses.
 # Install dependencies
 npm install
 
+# Create environment file
+cp .env.example .env.local
+
+# Add your Resend API key to .env.local
+RESEND_API_KEY=your_api_key_here
+
 # Start development server
 npm run dev
 
@@ -46,138 +55,44 @@ npm run dev
 npm run build
 
 # Start production server
-npm run start
+npm start
 
 # Run linter
 npm run lint
 ```
 
-## 🌐 Deployment to Vercel
+## 🌐 Environment Variables
 
-### Step 1: Push to GitHub
+Create a `.env.local` file in the root directory:
 
-```bash
-# Initialize git repository (if not already done)
-git init
-git add .
-git commit -m "Initial commit"
-
-# Create GitHub repository and push
-gh repo create jose.technology --public --source=. --remote=origin --push
-```
-
-### Step 2: Connect to Vercel
-
-1. Go to [Vercel Dashboard](https://vercel.com/dashboard)
-2. Click "Add New Project"
-3. Import your GitHub repository
-4. Configure build settings (auto-detected):
-   - **Framework Preset**: Next.js
-   - **Build Command**: `npm run build`
-   - **Output Directory**: `.next`
-5. Click "Deploy"
-
-### Step 3: Configure Domain (jose.technology)
-
-1. In Vercel project settings, go to "Domains"
-2. Add `jose.technology` as custom domain
-3. Vercel will provide DNS records to add to GoDaddy:
-   - **Type**: A Record
-   - **Name**: @
-   - **Value**: 76.76.19.19
-   - **Type**: CNAME
-   - **Name**: www
-   - **Value**: cname.vercel-dns.com
-4. Log into GoDaddy DNS settings and add these records
-5. Wait for DNS propagation (can take up to 48 hours, usually much faster)
-
-## 📝 Customization Tasks
-
-### Replace Placeholder Content
-
-1. **Resume PDF**: Add your resume to `/public/resume.pdf`
-2. **Headshot Image**: Add to `/src/assets/images/headshot.jpg` and update About page
-3. **GitHub/LinkedIn URLs**: Update in `Footer.tsx`, `Portfolio.tsx`, and `About.tsx`
-4. **Email Address**: Replace `hello@jose.technology` throughout the codebase
-5. **Bio & Experience**: Update in `About.tsx` and `Portfolio.tsx`
-6. **Service Descriptions**: Customize in `Services.tsx` to match your offerings
-
-### Configure Calendly
-
-In `/src/pages/Contact.tsx`, replace the Calendly placeholder:
-
-```tsx
-<iframe
-  src="https://calendly.com/YOUR-USERNAME/30min"
-  width="100%"
-  height="600"
-  frameBorder="0"
-></iframe>
-```
-
-### Add Plausible Analytics
-
-Add to `/index.html` in the `<head>` section:
-
-```html
-<script defer data-domain="jose.technology" src="https://plausible.io/js/script.js"></script>
-```
-
-### Contact Form Backend
-
-The contact form currently logs to console. To connect a real email service:
-
-1. Create an API route in `pages/api/contact.ts` (already created)
-2. Configure SendGrid or Mailgun with API keys
-3. Add environment variables in Vercel or `.env.local`
-4. Update the form submission handler in `Contact.tsx` to call the API
-
-Example implementation in `pages/api/contact.ts`:
-
-```typescript
-import type { NextApiRequest, NextApiResponse } from "next";
-
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  if (req.method === "POST") {
-    const { name, email, message } = req.body;
-    // Send email using your preferred service
-    // e.g., SendGrid, Mailgun, etc.
-    res.status(200).json({ message: "Form submission successful!" });
-  } else {
-    res.status(405).json({ message: "Method not allowed" });
-  }
-}
+```env
+RESEND_API_KEY=your_resend_api_key_here
 ```
 
 ## 🎨 Design System
 
-### Colors
-- **Primary**: Deep Tech Blue `oklch(0.45 0.15 250)` — Professional, trustworthy
-- **Accent**: Energetic Coral `oklch(0.68 0.18 25)` — Warm, approachable
-- **Secondary**: Warm Slate `oklch(0.35 0.02 250)` — Supporting actions
+### Brand Colors
+- **Primary Cyan**: `#00A8E8` — Logo color, represents innovation and technology
+- **Primary Dark**: `#2D2D2D` — Professional, stable
+- **Neutrals**: Slate color palette for sophisticated feel
 
 ### Typography
-- **Primary Font**: Inter (headings and body text)
-- **Code Font**: JetBrains Mono (code snippets)
+- **Font**: Inter (sans-serif)
+- Professional, modern type scale
 
 ### Spacing
-- Section padding: `py-20` (desktop), `py-12` (mobile)
-- Content max-width: `max-w-6xl` (wide) or `max-w-4xl` (narrow)
+- Consistent 8px grid system
+- Generous whitespace for clarity
 
 ## 📄 License
 
 MIT License - See [LICENSE](LICENSE) file for details
 
-## 🤝 Contributing
-
-This is a personal website, but suggestions and improvements are welcome! Open an issue or submit a pull request.
-
 ## 📧 Contact
 
-- **Email**: hello@jose.technology
-- **GitHub**: [@josegonzalez](https://github.com/josegonzalez)
-- **LinkedIn**: [josegonzalez](https://linkedin.com/in/josegonzalez)
+- **Website**: https://jose.technology
+- **Email**: contact@jose.technology
 
 ---
 
-Built with ❤️ using React, TypeScript, and Tailwind CSS
+Built with ❤️ using Next.js, TypeScript, and Tailwind CSS

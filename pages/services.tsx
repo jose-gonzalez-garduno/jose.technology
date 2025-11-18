@@ -7,53 +7,36 @@ import { motion } from 'framer-motion'
 
 const services = [
   {
-    icon: Lightning,
-    title: 'AI Consulting & Implementation',
-    description: 'Strategic AI integration to automate processes, enhance decision-making, and unlock new business opportunities.',
+    icon: Users,
+    title: 'Technical Advisory',
+    description: 'Architecture decisions, vendor/tool selection, and roadmaps tailored to your goals—clear direction without a full-time leadership hire.',
     outcomes: [
-      'Reduced operational costs through intelligent automation',
-      'Data-driven insights for better business decisions',
-      'Competitive advantage through AI-powered features',
+      'Clear technical direction and architecture',
+      'Informed vendor and tool selection decisions',
+      'Roadmap aligned with business goals',
+    ],
+  },
+  {
+    icon: Lightning,
+    title: 'Workflow Automation & Integrations',
+    description: 'Connect the tools you already use and remove repetitive steps with targeted automation; add AI for classification, routing, or summarization when it measurably helps.',
+    outcomes: [
+      'Email-to-ticket triage and assignment',
+      'Quote/invoice sync between CRM and accounting',
+      'Document-to-database extraction',
+      'Lead enrichment and routing',
+      'Weekly KPI report generation',
     ],
   },
   {
     icon: Rocket,
-    title: 'Systems Modernization',
-    description: 'Transform legacy systems into modern, scalable, cloud-native applications that grow with your business.',
+    title: 'Custom Websites & Software',
+    description: 'Design and build modern sites and purpose-built software that improve reliability, performance, and customer experience.',
     outcomes: [
-      'Improved system performance and reliability',
-      'Lower maintenance costs and technical debt',
-      'Enhanced security and compliance',
-    ],
-  },
-  {
-    icon: Users,
-    title: 'Development Teams & Contracting',
-    description: 'Experienced technical leadership and full-stack development teams to execute your projects with excellence.',
-    outcomes: [
-      'On-time, on-budget project delivery',
-      'Access to senior-level technical expertise',
-      'Flexible engagement models to fit your needs',
-    ],
-  },
-  {
-    icon: GitBranch,
-    title: 'System Integrations',
-    description: 'Connect your tools and platforms seamlessly to create a unified, efficient technology ecosystem.',
-    outcomes: [
-      'Eliminated data silos and manual data entry',
-      'Streamlined workflows across platforms',
-      'Real-time data synchronization',
-    ],
-  },
-  {
-    icon: GraduationCap,
-    title: 'Technical Training & Workshops',
-    description: 'Empower your team with modern development practices, AI tools, and technical skills through hands-on training.',
-    outcomes: [
-      'Increased team productivity and confidence',
-      'Reduced dependency on external consultants',
-      'Faster adoption of new technologies',
+      'Modern, responsive website design',
+      'Purpose-built tools that match your processes',
+      'Improved reliability and performance',
+      'Enhanced customer experience',
     ],
   },
 ]
@@ -73,12 +56,11 @@ export default function Services() {
             className="space-y-6"
           >
             <h1 className="text-5xl md:text-6xl font-bold tracking-tight text-[#2D2D2D]">
-              Technology Services for{' '}
+              Services for{' '}
               <span className="text-[#00A8E8]">Growing Businesses</span>
             </h1>
             <p className="text-xl md:text-2xl text-[#6B7280] max-w-3xl mx-auto leading-relaxed">
-              From AI consulting to systems modernization, I help small businesses leverage technology 
-              to compete, scale, and thrive.
+              We help growing businesses improve existing products and operations through advisory, integrations, and custom builds. We're consultants—not a product—using AI selectively when it clearly improves speed or accuracy.
             </p>
           </motion.div>
         </div>
@@ -153,13 +135,13 @@ export default function Services() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
               <Link href="/contact">
-                <Button size="lg" className="bg-[#00A8E8] hover:bg-[#0096D1] text-white shadow-lg hover:shadow-xl transition-all duration-300 group">
+                <Button size="lg" className="bg-[#00A8E8] hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-600 text-white shadow-lg hover:shadow-2xl hover:shadow-blue-500/50 hover:scale-110 transition-all duration-300 group">
                   Contact for Quote
                   <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" weight="bold" />
                 </Button>
               </Link>
               <Link href="/portfolio">
-                <Button size="lg" variant="outline" className="border-2 border-[#2D2D2D] text-[#2D2D2D] hover:bg-[#2D2D2D]/5 transition-colors duration-300">
+                <Button size="lg" variant="outline" className="border-2 border-[#2D2D2D] text-[#2D2D2D] hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-600 hover:text-white hover:border-transparent shadow-md hover:shadow-xl hover:scale-110 transition-all duration-300">
                   View Portfolio
                 </Button>
               </Link>

@@ -114,7 +114,7 @@ export default function Terms() {
               If you have any questions about these Terms of Service, please contact us at:
             </p>
             <p className="text-muted-foreground mt-4">
-              <strong>Email:</strong> hello@jose.technology
+              <strong>Email:</strong> contact@jose.technology
             </p>
           </div>
         </div>

@@ -130,11 +130,11 @@ export default function Contact() {
             className="space-y-6"
           >
             <h1 className="text-5xl md:text-6xl font-bold tracking-tight text-[#2D2D2D]">
-              Let's{' '}
-              <span className="text-[#00A8E8]">Work Together</span>
+              Explore a Practical{' '}
+              <span className="text-[#00A8E8]">Engineering Partnership</span>
             </h1>
             <p className="text-xl md:text-2xl text-[#6B7280] max-w-3xl mx-auto leading-relaxed">
-              Ready to discuss your project? Choose the option that works best for you.
+              Quick assessment. Clear priorities. Practical plan.
             </p>
           </motion.div>
         </div>
@@ -265,7 +265,7 @@ export default function Contact() {
 
                   <Button 
                     type="submit" 
-                    className="w-full bg-[#00A8E8] hover:bg-[#0096D1] text-white shadow-lg hover:shadow-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed" 
+                    className="w-full bg-[#00A8E8] hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-600 text-white shadow-lg hover:shadow-2xl hover:shadow-blue-500/50 hover:scale-105 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed" 
                     disabled={isSubmitting || isSubmitted}
                     size="lg"
                   >
@@ -348,6 +348,64 @@ export default function Contact() {
           </div>
         </div>
       </section>
+
+      {/* FAQ Section */}
+      <section className="py-24 bg-gradient-subtle relative overflow-hidden">
+        <div className="absolute inset-0 blueprint-grid opacity-30" />
+        
+        <div className="max-w-4xl mx-auto px-6 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="space-y-8"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-[#2D2D2D] text-center mb-12">
+              Common Questions
+            </h2>
+            
+            <div className="space-y-6">
+              <Card className="p-6 bg-white border-2 border-transparent hover:border-cyan-400/20 transition-all duration-300">
+                <h3 className="text-lg font-semibold text-[#2D2D2D] mb-3">
+                  Is this just AI consulting?
+                </h3>
+                <p className="text-[#6B7280] leading-relaxed">
+                  No—AI is used only if it meaningfully improves the workflow. We focus on practical modernization: automation, integrations, and system upgrades that deliver measurable results.
+                </p>
+              </Card>
+
+              <Card className="p-6 bg-white border-2 border-transparent hover:border-cyan-400/20 transition-all duration-300">
+                <h3 className="text-lg font-semibold text-[#2D2D2D] mb-3">
+                  How soon do we see value?
+                </h3>
+                <p className="text-[#6B7280] leading-relaxed">
+                  Most automation pilots deliver measurable time savings inside 2–3 weeks. We focus on quick wins first, then scale to larger improvements.
+                </p>
+              </Card>
+
+              <Card className="p-6 bg-white border-2 border-transparent hover:border-cyan-400/20 transition-all duration-300">
+                <h3 className="text-lg font-semibold text-[#2D2D2D] mb-3">
+                  Do you replace existing SaaS tools?
+                </h3>
+                <p className="text-[#6B7280] leading-relaxed">
+                  Not necessarily. We often integrate and optimize your current tools first. If replacement makes sense, we provide vendor-neutral recommendations based on your needs and budget.
+                </p>
+              </Card>
+
+              <Card className="p-6 bg-white border-2 border-transparent hover:border-cyan-400/20 transition-all duration-300">
+                <h3 className="text-lg font-semibold text-[#2D2D2D] mb-3">
+                  Can you work with legacy or on-premise systems?
+                </h3>
+                <p className="text-[#6B7280] leading-relaxed">
+                  Yes. We specialize in modernizing legacy systems and creating bridges between old and new infrastructure while maintaining business continuity.
+                </p>
+              </Card>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
     </Layout>
   )
 }
