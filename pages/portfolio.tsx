@@ -4,7 +4,7 @@ import { Card } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { DownloadSimple, EnvelopeSimple, LinkedinLogo, GithubLogo, CheckCircle, ArrowRight } from '@phosphor-icons/react'
 import Link from 'next/link'
-import { motion } from 'framer-motion'
+import { motion, useReducedMotion } from 'framer-motion'
 
 const skills = [
   'Node.js', 'TypeScript', 'React', 'Python', 'Next.js',
@@ -38,6 +38,8 @@ const experience = [
 ]
 
 export default function Portfolio() {
+  const prefersReducedMotion = useReducedMotion();
+  
   return (
     <Layout>
       {/* Hero Section - Blueprint Style */}
@@ -48,7 +50,7 @@ export default function Portfolio() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.3 }}
             className="space-y-8"
           >
             <div className="space-y-6">
@@ -87,7 +89,7 @@ export default function Portfolio() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.3 }}
           >
             <h2 className="text-4xl font-bold text-[#2D2D2D] mb-8">Technical Skills</h2>
             <Card className="p-8 bg-white border-2 border-[#00A8E8]/10">
@@ -160,7 +162,7 @@ export default function Portfolio() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.3 }}
           >
             <h2 className="text-4xl font-bold text-[#2D2D2D] mb-8">Connect With Me</h2>
             <Card className="p-8 bg-white border-2 border-[#00A8E8]/10">
@@ -205,7 +207,7 @@ export default function Portfolio() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.3 }}
             className="space-y-8"
           >
             <h2 className="text-4xl md:text-5xl font-bold text-[#2D2D2D]">
