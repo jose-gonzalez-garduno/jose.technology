@@ -10,14 +10,14 @@ export default function Home() {
   return (
     <Layout>
       {/* Hero Section - Blueprint Style with Animated Background */}
-      <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden from-slate-900 via-slate-800 to-cyan-950">
+      <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-cyan-50 via-blue-50 to-slate-100">
         {/* Animated Background Boxes */}
         <div className="absolute inset-0 w-full h-full">
           <Boxes />
         </div>
         
         {/* Overlay for better text readability */}
-        <div className="absolute inset-0 w-full h-full bg-gradient-to-b from-slate-900/40 via-transparent to-slate-900/60 z-10 pointer-events-none" />
+        <div className="absolute inset-0 w-full h-full bg-gradient-to-b from-white/40 via-transparent to-white/60 z-10 pointer-events-none" />
         
         <div className="relative z-20 max-w-6xl mx-auto px-6 py-20 text-center">
           <motion.div
@@ -46,14 +46,14 @@ export default function Home() {
 
             {/* Hero Headline */}
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-tight">
-              Modernize and Automate
+              Thoughtful Engineering for
               <br />
-              <span className="bg-gradient-to-r from-cyan-400 via-cyan-300 to-cyan-500 bg-clip-text text-transparent">Your Small Business</span>
+              <span className="bg-gradient-to-r from-cyan-400 via-cyan-300 to-cyan-500 bg-clip-text text-transparent">Growing Businesses</span>
             </h1>
 
             {/* Subheadline */}
             <p className="text-xl md:text-2xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
-              We map your workflows, prioritize high-impact changes, and deliver lean automation & system upgrades—using AI only when it measurably helps.
+              Not a platform—just skilled engineers: modern websites, integrations, and custom software to solve real operational problems. We use AI where it adds clear value to speed and accuracy.
             </p>
 
             {/* CTA Buttons */}
@@ -69,7 +69,7 @@ export default function Home() {
                   <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" weight="bold" />
                 </Button>
               </Link>
-              <Link href="/services">
+              <Link href="/#how-we-work">
                 <Button size="lg" variant="outline" className="border-2 border-cyan-400 text-cyan-300 hover:bg-cyan-500/10 hover:text-cyan-200 backdrop-blur-sm transition-colors duration-300">
                   How We Work
                 </Button>
@@ -92,6 +92,11 @@ export default function Home() {
                 <CheckCircle weight="fill" className="text-cyan-400" size={20} />
                 <span>Measurable Outcomes</span>
               </div>
+              <div className="hidden sm:block w-px h-4 bg-slate-600" />
+              <Link href="/about#responsible-ai" className="hidden sm:flex items-center gap-2 hover:text-slate-200 transition-colors group">
+                <CheckCircle weight="fill" className="text-green-500 group-hover:text-green-400" size={20} />
+                <span>Responsible AI Use</span>
+              </Link>
             </motion.div>
           </motion.div>
         </div>
@@ -186,23 +191,23 @@ export default function Home() {
             className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center"
           >
             <div className="space-y-2">
-              <div className="text-3xl md:text-4xl font-bold text-cyan-400">37%</div>
-              <p className="text-sm text-slate-400">Average reduction in manual data entry</p>
+              <div className="text-3xl md:text-4xl font-bold text-cyan-400">10+ hrs/week</div>
+              <p className="text-sm text-slate-400">Time saved through workflow automation</p>
             </div>
             <div className="space-y-2">
-              <div className="text-3xl md:text-4xl font-bold text-cyan-400">2-4×</div>
-              <p className="text-sm text-slate-400">Faster feature iteration after stack upgrade</p>
+              <div className="text-3xl md:text-4xl font-bold text-cyan-400">3-6 months</div>
+              <p className="text-sm text-slate-400">Faster deployment with modernized systems</p>
             </div>
             <div className="space-y-2">
-              <div className="text-3xl md:text-4xl font-bold text-cyan-400">25%</div>
-              <p className="text-sm text-slate-400">Lower monthly SaaS spend via consolidation</p>
+              <div className="text-3xl md:text-4xl font-bold text-cyan-400">ROI in weeks</div>
+              <p className="text-sm text-slate-400">Not months—quick wins drive immediate value</p>
             </div>
           </motion.div>
         </div>
       </section>
 
       {/* How We Work - Methodology Section */}
-      <section className="py-24 bg-white relative overflow-hidden">
+      <section id="how-we-work" className="py-24 bg-white relative overflow-hidden">
         <div className="max-w-6xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

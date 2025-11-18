@@ -14,11 +14,11 @@ export function Footer() {
             <div className="flex items-center gap-3">
               <img 
                 src="/icon_logo_only.png"
-                alt="jose.technology" 
+                alt="Jose Technology Solutions" 
                 className="h-10 w-10"
               />
               <h3 className="font-bold text-xl text-foreground">
-                jose.technology
+                Jose Technology Solutions
               </h3>
             </div>
             <p className="text-sm text-muted-foreground leading-relaxed">

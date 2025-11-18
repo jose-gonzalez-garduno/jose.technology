@@ -24,7 +24,7 @@ export default function About() {
                 About Jose Technology Solutions
               </h1>
               <p className="text-xl text-[#6B7280] leading-relaxed">
-                We help small businesses modernize the systems they depend on—focusing on automation and clarity rather than chasing trends.
+                We help small businesses modernize the systems they depend on, focusing on automation and clarity rather than chasing trends.
               </p>
             </motion.div>
             <motion.div 
@@ -137,7 +137,7 @@ export default function About() {
       </section>
 
       {/* Responsible AI Section */}
-      <section className="py-20 bg-white">
+      <section id="responsible-ai" className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -168,12 +168,12 @@ export default function About() {
           >
             <h2 className="text-3xl md:text-4xl font-bold text-[#2D2D2D] mb-8">Connect With Me</h2>
             <Card className="p-8 bg-white border-2 border-[#00A8E8]/10">
-              <div className="space-y-6">
+              <div className="space-y-6 text-center">
                 <p className="text-lg text-[#6B7280] leading-relaxed">
                   I'm always interested in connecting with fellow technologists, potential clients, 
                   and anyone passionate about using technology to solve real problems.
                 </p>
-                <div className="flex flex-wrap gap-6">
+                <div className="flex flex-wrap gap-6 justify-center">
                   <a
                     href="https://github.com/josegonzalez"
                     target="_blank"
@@ -200,7 +200,7 @@ export default function About() {
                     <span className="font-medium">contact@jose.technology</span>
                   </a>
                 </div>
-                <div className="pt-4">
+                <div className="pt-4 flex justify-center">
                   <Link href="/contact">
                     <Button size="lg" className="bg-[#00A8E8] hover:bg-[#0096D1] text-white shadow-lg hover:shadow-xl transition-all duration-300 group">
                       Let's Work Together

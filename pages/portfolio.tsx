@@ -63,12 +63,12 @@ export default function Portfolio() {
             </div>
             
             <div className="flex flex-wrap gap-4">
-              <Button size="lg" className="bg-[#00A8E8] hover:bg-[#0096D1] text-white shadow-lg hover:shadow-xl transition-all duration-300 group">
+              <Button size="lg" className="bg-[#00A8E8] hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-600 text-white shadow-lg hover:shadow-2xl hover:shadow-blue-500/50 hover:scale-110 transition-all duration-300 group">
                 <DownloadSimple className="mr-2 group-hover:translate-y-1 transition-transform" weight="bold" />
                 Download Resume
               </Button>
               <Link href="/contact">
-                <Button size="lg" variant="outline" className="border-2 border-[#00A8E8] text-[#00A8E8] hover:bg-[#00A8E8]/5 transition-colors duration-300">
+                <Button size="lg" variant="outline" className="border-2 border-[#00A8E8] text-[#00A8E8] hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-600 hover:text-white hover:border-transparent shadow-md hover:shadow-xl hover:scale-110 transition-all duration-300">
                   <EnvelopeSimple className="mr-2" weight="bold" />
                   Get in Touch
                 </Button>

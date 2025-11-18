@@ -130,11 +130,11 @@ export default function Contact() {
             className="space-y-6"
           >
             <h1 className="text-5xl md:text-6xl font-bold tracking-tight text-[#2D2D2D]">
-              Start With a{' '}
-              <span className="text-[#00A8E8]">Modernization Review</span>
+              Explore a Practical{' '}
+              <span className="text-[#00A8E8]">Engineering Partnership</span>
             </h1>
             <p className="text-xl md:text-2xl text-[#6B7280] max-w-3xl mx-auto leading-relaxed">
-              We'll map 2–3 high-impact improvement areas and give you an action plan—no obligation.
+              Quick assessment. Clear priorities. Practical plan.
             </p>
           </motion.div>
         </div>
