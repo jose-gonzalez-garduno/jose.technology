@@ -27,10 +27,22 @@ export default function Home() {
             className="space-y-8 backdrop-blur-md bg-slate-900/60 rounded-3xl p-12 shadow-2xl border border-cyan-500/20 ring-1 ring-cyan-500/10"
           >
             {/* Trust Indicator */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyan-500/20 border border-cyan-400/30 backdrop-blur-sm">
-              <div className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse shadow-lg shadow-cyan-400/50" />
-              <span className="text-sm font-medium text-cyan-100">Available for Projects</span>
-            </div>
+            <motion.div
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ 
+                duration: 0.5, 
+                delay: 0.3,
+                repeat: Infinity,
+                repeatType: "reverse",
+                repeatDelay: 2
+              }}
+              className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-gradient-to-r from-cyan-500/30 to-blue-500/30 border-2 border-cyan-400/50 backdrop-blur-sm shadow-lg shadow-cyan-500/30 hover:shadow-xl hover:shadow-cyan-400/40 transition-all duration-300"
+            >
+              <div className="w-3 h-3 rounded-full bg-green-500 animate-pulse shadow-lg shadow-green-500/70" />
+              <span className="text-base md:text-lg font-bold text-cyan-100 tracking-wide">Available for Projects</span>
+              <div className="w-3 h-3 rounded-full bg-green-500 animate-pulse shadow-lg shadow-green-500/70" />
+            </motion.div>
 
             {/* Hero Headline */}
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-tight">
@@ -184,12 +196,12 @@ export default function Home() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
               <Link href="/contact">
-                <Button size="lg" className="bg-slate-900 hover:bg-slate-800 text-white shadow-lg hover:shadow-xl transition-all duration-300">
+                <Button size="lg" className="bg-slate-900 hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-600 text-white shadow-lg hover:shadow-2xl hover:shadow-blue-500/50 transition-all duration-300 hover:scale-110">
                   Schedule a Consultation
                 </Button>
               </Link>
               <Link href="/portfolio">
-                <Button size="lg" variant="outline" className="border-2 border-slate-900 text-slate-900 hover:bg-slate-900/5 transition-colors duration-300">
+                <Button size="lg" variant="outline" className="border-2 border-slate-900 text-slate-900 hover:bg-slate-900 hover:text-white hover:border-slate-900 shadow-md hover:shadow-xl hover:scale-110 transition-all duration-300">
                   View Portfolio
                 </Button>
               </Link>

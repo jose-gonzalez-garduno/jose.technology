@@ -1,31 +1,28 @@
-Thanks for helping make GitHub safe for everyone.
+# Security Policy
 
-# Security
+## Reporting Security Vulnerabilities
 
-GitHub takes the security of our software products and services seriously, including all of the open source code repositories managed through our GitHub organizations, such as [GitHub](https://github.com/GitHub).
+If you discover a security vulnerability in jose.technology, please report it responsibly.
 
-Even though [open source repositories are outside of the scope of our bug bounty program](https://bounty.github.com/index.html#scope) and therefore not eligible for bounty rewards, we will ensure that your finding gets passed along to the appropriate maintainers for remediation. 
+**Please do not report security vulnerabilities through public GitHub issues.**
 
-## Reporting Security Issues
+Instead, please send an email to: **contact@jose.technology**
 
-If you believe you have found a security vulnerability in any GitHub-owned repository, please report it to us through coordinated disclosure.
+## What to Include
 
-**Please do not report security vulnerabilities through public GitHub issues, discussions, or pull requests.**
+Please include as much of the following information as possible:
 
-Instead, please send an email to opensource-security[@]github.com.
+- Description of the vulnerability
+- Steps to reproduce the issue
+- Potential impact
+- Any suggested fixes (if applicable)
 
-Please include as much of the information listed below as you can to help us better understand and resolve the issue:
+## Response Time
 
-  * The type of issue (e.g., buffer overflow, SQL injection, or cross-site scripting)
-  * Full paths of source file(s) related to the manifestation of the issue
-  * The location of the affected source code (tag/branch/commit or direct URL)
-  * Any special configuration required to reproduce the issue
-  * Step-by-step instructions to reproduce the issue
-  * Proof-of-concept or exploit code (if possible)
-  * Impact of the issue, including how an attacker might exploit the issue
+We aim to acknowledge security reports within 48 hours and will keep you informed of our progress towards a fix.
 
-This information will help us triage your report more quickly.
+## Supported Versions
 
-## Policy
+We maintain security updates for the latest production version only.
 
-See [GitHub's Safe Harbor Policy](https://docs.github.com/en/site-policy/security-policies/github-bug-bounty-program-legal-safe-harbor#1-safe-harbor-terms)
+Thank you for helping keep jose.technology secure!

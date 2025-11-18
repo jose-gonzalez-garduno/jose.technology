@@ -100,7 +100,7 @@ export default function Privacy() {
               If you have questions about this privacy policy or your personal data, please contact us at:
             </p>
             <p className="text-muted-foreground mt-4">
-              <strong>Email:</strong> hello@jose.technology
+              <strong>Email:</strong> contact@jose.technology
             </p>
           </div>
 

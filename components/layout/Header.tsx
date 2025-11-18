@@ -34,10 +34,10 @@ export function Header() {
             <Link
               key={item.path}
               href={item.path}
-              className={`relative text-sm font-medium transition-colors ${
+              className={`relative text-sm font-medium transition-all duration-300 px-3 py-2 rounded-md ${
                 isActive(item.path)
-                  ? 'text-foreground'
-                  : 'text-muted-foreground hover:text-foreground'
+                  ? 'text-foreground bg-accent/20'
+                  : 'text-muted-foreground hover:text-transparent hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-600 hover:bg-clip-text hover:scale-105'
               }`}
             >
               {item.label}
@@ -51,7 +51,10 @@ export function Header() {
             </Link>
           ))}
           <Link href="/contact">
-            <Button size="sm" className="shadow-md shadow-primary/20 hover:shadow-lg hover:shadow-primary/30 transition-all duration-300">
+            <Button 
+              size="sm" 
+              className="bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg hover:from-blue-700 hover:to-purple-700 hover:scale-105 transition-all duration-300 font-semibold"
+            >
               Contact
             </Button>
           </Link>
@@ -91,7 +94,7 @@ export function Header() {
                 </Link>
               ))}
               <Link href="/contact" onClick={() => setMobileMenuOpen(false)}>
-                <Button size="sm" className="w-full mt-2">Contact</Button>
+                <Button size="sm" className="w-full mt-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-700 hover:to-purple-700">Contact</Button>
               </Link>
             </nav>
           </motion.div>
