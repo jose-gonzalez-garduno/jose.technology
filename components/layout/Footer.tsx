@@ -37,13 +37,13 @@ export function Footer() {
               </Link>
               <Link href="/services" className="text-sm text-muted-foreground hover:text-blue-600 transition-all duration-300 hover:translate-x-2 group">
                 <span className="relative">
-                  AI Consulting
+                  Automation & Integrations
                   <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-gradient-to-r from-blue-600 to-purple-600 group-hover:w-full transition-all duration-300" />
                 </span>
               </Link>
               <Link href="/services" className="text-sm text-muted-foreground hover:text-blue-600 transition-all duration-300 hover:translate-x-2 group">
                 <span className="relative">
-                  Automation & Integrations
+                  Technical Advisory
                   <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-gradient-to-r from-blue-600 to-purple-600 group-hover:w-full transition-all duration-300" />
                 </span>
               </Link>
@@ -78,7 +78,7 @@ export function Footer() {
             <h4 className="font-semibold text-sm uppercase tracking-wider text-foreground">Connect</h4>
             <div className="flex gap-3">
               <a
-                href="https://github.com/josegonzalez"
+                href="https://github.com/jose-gonzalez-garduno"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-xl bg-muted hover:bg-gradient-to-br hover:from-blue-600 hover:to-purple-600 flex items-center justify-center text-muted-foreground hover:text-white transition-all duration-300 hover:scale-125 hover:shadow-lg hover:shadow-blue-500/50"

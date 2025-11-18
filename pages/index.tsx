@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <Layout>
       {/* Hero Section - Blueprint Style with Animated Background */}
-      <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-cyan-50 via-blue-50 to-slate-100">
+      <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-cyan-50 via-blue-50 to-slate-100">
         {/* Animated Background Boxes */}
         <div className="absolute inset-0 w-full h-full">
           <Boxes />
@@ -19,12 +19,12 @@ export default function Home() {
         {/* Overlay for better text readability */}
         <div className="absolute inset-0 w-full h-full bg-gradient-to-b from-white/40 via-transparent to-white/60 z-10 pointer-events-none" />
         
-        <div className="relative z-20 max-w-6xl mx-auto px-6 py-20 text-center">
+        <div className="relative z-20 max-w-6xl mx-auto px-6 py-12 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="space-y-8 backdrop-blur-md bg-slate-900/60 rounded-3xl p-12 shadow-2xl border border-cyan-500/20 ring-1 ring-cyan-500/10"
+            className="space-y-5 backdrop-blur-md bg-gradient-to-br from-slate-800/70 via-blue-900/60 to-cyan-900/70 rounded-2xl p-6 md:p-8 shadow-xl border border-cyan-400/30 ring-1 ring-cyan-400/20"
           >
             {/* Trust Indicator */}
             <motion.div
@@ -37,23 +37,23 @@ export default function Home() {
                 repeatType: "reverse",
                 repeatDelay: 2
               }}
-              className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-gradient-to-r from-cyan-500/30 to-blue-500/30 border-2 border-cyan-400/50 backdrop-blur-sm shadow-lg shadow-cyan-500/30 hover:shadow-xl hover:shadow-cyan-400/40 transition-all duration-300"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-cyan-500/30 to-blue-500/30 border-2 border-cyan-400/50 backdrop-blur-sm shadow-lg shadow-cyan-500/30 hover:shadow-xl hover:shadow-cyan-400/40 transition-all duration-300"
             >
-              <div className="w-3 h-3 rounded-full bg-green-500 animate-pulse shadow-lg shadow-green-500/70" />
-              <span className="text-base md:text-lg font-bold text-cyan-100 tracking-wide">Available for Projects</span>
-              <div className="w-3 h-3 rounded-full bg-green-500 animate-pulse shadow-lg shadow-green-500/70" />
+              <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse shadow-lg shadow-green-500/70" />
+              <span className="text-sm md:text-base font-bold text-cyan-100 tracking-wide">Available for Projects</span>
+              <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse shadow-lg shadow-green-500/70" />
             </motion.div>
 
             {/* Hero Headline */}
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-tight">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-tight">
               Thoughtful Engineering for
               <br />
               <span className="bg-gradient-to-r from-cyan-400 via-cyan-300 to-cyan-500 bg-clip-text text-transparent">Growing Businesses</span>
             </h1>
 
             {/* Subheadline */}
-            <p className="text-xl md:text-2xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
-              Not a platform—just skilled engineers: modern websites, integrations, and custom software to solve real operational problems. We use AI where it adds clear value to speed and accuracy.
+            <p className="text-lg md:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
+              Not a platform, just skilled engineers: modern websites, integrations, and custom software to solve real operational problems. We use AI where it adds clear value to speed and accuracy.
             </p>
 
             {/* CTA Buttons */}
@@ -61,16 +61,16 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4"
+              className="flex flex-col sm:flex-row gap-3 justify-center items-center pt-2"
             >
               <Link href="/contact">
-                <Button size="lg" className="bg-cyan-500 hover:bg-cyan-400 text-slate-900 font-semibold shadow-lg shadow-cyan-500/30 hover:shadow-xl hover:shadow-cyan-400/40 transition-all duration-300 group">
+                <Button size="lg" className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-600 text-white shadow-lg hover:shadow-2xl hover:shadow-blue-500/50 hover:scale-110 transition-all duration-300 group">
                   Start a Modernization Review
                   <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" weight="bold" />
                 </Button>
               </Link>
               <Link href="/#how-we-work">
-                <Button size="lg" variant="outline" className="border-2 border-cyan-400 text-cyan-300 hover:bg-cyan-500/10 hover:text-cyan-200 backdrop-blur-sm transition-colors duration-300">
+              <Button size="lg" className="bg-cyan-500 hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-600 text-slate-900 hover:text-white text-white font-semibold shadow-lg hover:shadow-2xl hover:shadow-blue-500/50 hover:scale-110 transition-all duration-300 group">
                   How We Work
                 </Button>
               </Link>
@@ -81,19 +81,19 @@ export default function Home() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="flex items-center justify-center gap-8 pt-8 text-sm text-slate-400"
+              className="flex items-center justify-center gap-8 pt-6 text-sm text-slate-400"
             >
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 text-white">
                 <CheckCircle weight="fill" className="text-cyan-400" size={20} />
                 <span>Practical Modernization</span>
               </div>
               <div className="hidden sm:block w-px h-4 bg-slate-600" />
-              <div className="hidden sm:flex items-center gap-2">
+              <div className="hidden sm:flex items-center gap-2 text-white">
                 <CheckCircle weight="fill" className="text-cyan-400" size={20} />
                 <span>Measurable Outcomes</span>
               </div>
               <div className="hidden sm:block w-px h-4 bg-slate-600" />
-              <Link href="/about#responsible-ai" className="hidden sm:flex items-center gap-2 hover:text-slate-200 transition-colors group">
+              <Link href="/about#responsible-ai" className="hidden sm:flex items-center gap-2 hover:text-slate-200 transition-colors group text-white">
                 <CheckCircle weight="fill" className="text-green-500 group-hover:text-green-400" size={20} />
                 <span>Responsible AI Use</span>
               </Link>
@@ -171,7 +171,7 @@ export default function Home() {
             className="text-center mt-12"
           >
             <Link href="/services">
-              <Button size="lg" variant="outline" className="border-2 border-[#00A8E8] text-[#00A8E8] hover:bg-[#00A8E8]/5 transition-colors duration-300 group">
+              <Button size="lg" variant="outline" className="border-2 border-[#00A8E8] text-[#00A8E8] hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-600 hover:text-white hover:border-transparent shadow-md hover:shadow-xl hover:scale-110 transition-all duration-300 group">
                 View All Services
                 <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" weight="bold" />
               </Button>
@@ -302,7 +302,7 @@ export default function Home() {
             className="text-center mt-16"
           >
             <Link href="/contact">
-              <Button size="lg" className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 group">
+              <Button size="lg" className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-600 text-white shadow-lg hover:shadow-2xl hover:shadow-blue-500/50 hover:scale-110 transition-all duration-300 group">
                 Start Your Modernization Review
                 <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" weight="bold" />
               </Button>
@@ -336,8 +336,8 @@ export default function Home() {
                 </Button>
               </Link>
               <Link href="/portfolio">
-                <Button size="lg" variant="outline" className="border-2 border-slate-900 text-slate-900 hover:bg-slate-900 hover:text-white hover:border-slate-900 shadow-md hover:shadow-xl hover:scale-110 transition-all duration-300">
-                  View Portfolio
+                <Button size="lg" variant="outline" className="border-2 border-[#2D2D2D] text-[#2D2D2D] hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-600 hover:text-white hover:border-transparent shadow-md hover:shadow-xl hover:scale-110 transition-all duration-300">
+                 View Portfolio
                 </Button>
               </Link>
             </div>

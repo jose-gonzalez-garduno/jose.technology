@@ -7,7 +7,7 @@ import Link from 'next/link'
 import { motion } from 'framer-motion'
 
 const skills = [
-  'TypeScript', 'React', 'Node.js', 'Python', 'Next.js',
+  'Node.js', 'TypeScript', 'React', 'Python', 'Next.js',
   'AI/ML Integration', 'System Architecture', 'Cloud Platforms',
   'API Design', 'Database Design', 'DevOps', 'Technical Leadership',
 ]
@@ -57,16 +57,18 @@ export default function Portfolio() {
                 <span className="text-[#00A8E8]">Resume</span>
               </h1>
               <p className="text-xl md:text-2xl text-[#6B7280] leading-relaxed">
-                Experienced full-stack engineer and technical consultant specializing in AI integration, 
-                systems modernization, and team leadership.
+                Experienced full-stack engineer and technical consultant specializing in 
+                systems modernization, AI integration, and team leadership.
               </p>
             </div>
             
             <div className="flex flex-wrap gap-4">
-              <Button size="lg" className="bg-[#00A8E8] hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-600 text-white shadow-lg hover:shadow-2xl hover:shadow-blue-500/50 hover:scale-110 transition-all duration-300 group">
-                <DownloadSimple className="mr-2 group-hover:translate-y-1 transition-transform" weight="bold" />
-                Download Resume
-              </Button>
+              <a href="/Jose_Gonzalez_G_Resume.pdf" download="Jose_Gonzalez_Resume.pdf">
+                <Button size="lg" className="bg-[#00A8E8] hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-600 text-white shadow-lg hover:shadow-2xl hover:shadow-blue-500/50 hover:scale-110 transition-all duration-300 group">
+                  <DownloadSimple className="mr-2 group-hover:translate-y-1 transition-transform" weight="bold" />
+                  Download Resume
+                </Button>
+              </a>
               <Link href="/contact">
                 <Button size="lg" variant="outline" className="border-2 border-[#00A8E8] text-[#00A8E8] hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-600 hover:text-white hover:border-transparent shadow-md hover:shadow-xl hover:scale-110 transition-all duration-300">
                   <EnvelopeSimple className="mr-2" weight="bold" />
@@ -164,7 +166,7 @@ export default function Portfolio() {
             <Card className="p-8 bg-white border-2 border-[#00A8E8]/10">
               <div className="flex flex-wrap gap-6">
                 <a
-                  href="https://github.com/josegonzalez"
+                  href="https://github.com/jose-gonzalez-garduno"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group inline-flex items-center gap-3 px-6 py-3 rounded-lg bg-[#F8FAFB] hover:bg-[#00A8E8]/10 text-[#6B7280] hover:text-[#00A8E8] transition-all duration-300 border-2 border-transparent hover:border-[#00A8E8]/20"
@@ -215,15 +217,17 @@ export default function Portfolio() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
               <Link href="/contact">
-                <Button size="lg" className="bg-[#00A8E8] hover:bg-[#0096D1] text-white shadow-lg hover:shadow-xl transition-all duration-300 group">
+                <Button size="lg" className="bg-[#00A8E8] hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-600 text-white shadow-lg hover:shadow-2xl hover:shadow-blue-500/50 hover:scale-110 transition-all duration-300 group">
                   Schedule a Call
                   <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" weight="bold" />
                 </Button>
               </Link>
-              <Button size="lg" variant="outline" className="border-2 border-[#2D2D2D] text-[#2D2D2D] hover:bg-[#2D2D2D]/5 transition-colors duration-300">
-                <DownloadSimple className="mr-2" weight="bold" />
-                Download Resume
-              </Button>
+              <a href="/Jose_Gonzalez_G_Resume.pdf" download="Jose_Gonzalez_Resume.pdf">
+                <Button size="lg" variant="outline" className="border-2 border-[#2D2D2D] text-[#2D2D2D] hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-600 hover:text-white hover:border-transparent shadow-md hover:shadow-xl hover:scale-110 transition-all duration-300">
+                  <DownloadSimple className="mr-2" weight="bold" />
+                  Download Resume
+                </Button>
+              </a>
             </div>
           </motion.div>
         </div>

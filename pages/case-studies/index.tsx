@@ -117,7 +117,7 @@ export default function CaseStudies() {
               Let's discuss how we can deliver similar results for your business.
             </p>
             <Link href="/contact">
-              <Button size="lg" className="bg-[#00A8E8] hover:bg-[#0096D1] text-white shadow-lg hover:shadow-xl transition-all duration-300 group">
+              <Button size="lg" className="bg-[#00A8E8] hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-600 text-white shadow-lg hover:shadow-2xl hover:shadow-blue-500/50 hover:scale-110 transition-all duration-300 group">
                 Start Your Modernization Review
                 <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" weight="bold" />
               </Button>

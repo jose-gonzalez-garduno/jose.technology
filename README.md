@@ -69,68 +69,6 @@ Create a `.env.local` file in the root directory:
 RESEND_API_KEY=your_resend_api_key_here
 ```
 
-Get your Resend API key at: https://resend.com
-
-## 📧 Email Configuration
-
-The contact form uses Resend for email delivery. Configure in your Vercel project:
-
-1. Go to your Vercel project settings
-2. Navigate to Environment Variables
-3. Add `RESEND_API_KEY` with your API key
-4. Redeploy the application
-
-## 🚀 Deployment to Vercel
-
-### Option 1: Deploy with Vercel CLI
-
-```bash
-# Install Vercel CLI
-npm i -g vercel
-
-# Deploy
-vercel
-
-# For production
-vercel --prod
-```
-
-### Option 2: Deploy via GitHub
-
-1. Push your code to GitHub
-2. Go to [Vercel Dashboard](https://vercel.com/dashboard)
-3. Click "Add New Project"
-4. Import your GitHub repository
-5. Configure environment variables (RESEND_API_KEY)
-6. Deploy
-
-### Configure Custom Domain
-
-1. In Vercel project settings, go to "Domains"
-2. Add your custom domain
-3. Update DNS records with your domain provider
-4. Wait for DNS propagation
-
-## 📝 Customization Checklist
-
-Before going live, update these items:
-
-### Required Changes
-- [ ] Add your actual resume PDF to `/public/resume.pdf`
-- [ ] Update GitHub URL in Footer, About, and Portfolio pages
-- [ ] Update LinkedIn URL in Footer, About, and Portfolio pages
-- [ ] Update Calendly URL in contact page
-- [ ] Review and update service descriptions if needed
-- [ ] Update professional experience in Portfolio page
-- [ ] Review and customize About page content
-
-### Optional Enhancements
-- [ ] Add more blog posts
-- [ ] Add project case studies to Portfolio
-- [ ] Set up custom analytics (Plausible, Google Analytics, etc.)
-- [ ] Add more detailed service pages
-- [ ] Create a sitemap.xml (already in /public)
-
 ## 🎨 Design System
 
 ### Brand Colors

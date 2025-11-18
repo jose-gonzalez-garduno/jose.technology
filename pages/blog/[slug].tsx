@@ -67,7 +67,7 @@ const blogContent: Record<string, {
             solutions that deliver real ROI.
           </p>
           <Link href="/contact">
-            <Button>Schedule a Consultation</Button>
+            <Button className="bg-[#00A8E8] hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-600 text-white shadow-lg hover:shadow-2xl hover:shadow-blue-500/50 hover:scale-110 transition-all duration-300">Schedule a Consultation</Button>
           </Link>
         </div>
       </div>
@@ -126,7 +126,7 @@ const blogContent: Record<string, {
             your specific situation and build a practical roadmap.
           </p>
           <Link href="/contact">
-            <Button>Get Expert Guidance</Button>
+            <Button className="bg-[#00A8E8] hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-600 text-white shadow-lg hover:shadow-2xl hover:shadow-blue-500/50 hover:scale-110 transition-all duration-300">Get Expert Guidance</Button>
           </Link>
         </div>
       </div>

@@ -175,7 +175,7 @@ export default function About() {
                 </p>
                 <div className="flex flex-wrap gap-6 justify-center">
                   <a
-                    href="https://github.com/josegonzalez"
+                    href="https://github.com/jose-gonzalez-garduno"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 text-[#6B7280] hover:text-[#00A8E8] transition-colors"
@@ -202,7 +202,7 @@ export default function About() {
                 </div>
                 <div className="pt-4 flex justify-center">
                   <Link href="/contact">
-                    <Button size="lg" className="bg-[#00A8E8] hover:bg-[#0096D1] text-white shadow-lg hover:shadow-xl transition-all duration-300 group">
+                    <Button size="lg" className="bg-[#00A8E8] hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-600 text-white shadow-lg hover:shadow-2xl hover:shadow-blue-500/50 hover:scale-110 transition-all duration-300 group">
                       Let's Work Together
                       <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" weight="bold" />
                     </Button>

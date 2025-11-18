@@ -7,47 +7,36 @@ import { motion } from 'framer-motion'
 
 const services = [
   {
-    icon: Lightning,
-    title: 'Automation & Integrations',
-    description: 'Cut repetitive handoffs and retyping. We integrate your tools (CRM, invoicing, helpdesk) and introduce targeted automation—sometimes assisted by AI—for classification, routing, and summarization.',
-    pain: 'Manual data handoffs slow you down.',
+    icon: Users,
+    title: 'Technical Advisory',
+    description: 'Architecture decisions, vendor/tool selection, and roadmaps tailored to your goals—clear direction without a full-time leadership hire.',
     outcomes: [
-      'Fewer repetitive tasks and faster customer response',
-      'Lower error rate from automated data flow',
-      'Eliminated data silos across platforms',
+      'Clear technical direction and architecture',
+      'Informed vendor and tool selection decisions',
+      'Roadmap aligned with business goals',
+    ],
+  },
+  {
+    icon: Lightning,
+    title: 'Workflow Automation & Integrations',
+    description: 'Connect the tools you already use and remove repetitive steps with targeted automation; add AI for classification, routing, or summarization when it measurably helps.',
+    outcomes: [
+      'Email-to-ticket triage and assignment',
+      'Quote/invoice sync between CRM and accounting',
+      'Document-to-database extraction',
+      'Lead enrichment and routing',
+      'Weekly KPI report generation',
     ],
   },
   {
     icon: Rocket,
-    title: 'Systems Modernization',
-    description: 'Move from brittle legacy scripts or outdated frameworks to maintainable, secure, documented systems—improving release speed and reducing operational risk.',
-    pain: 'Legacy systems hold back your agility.',
+    title: 'Custom Websites & Software',
+    description: 'Design and build modern sites and purpose-built software that improve reliability, performance, and customer experience.',
     outcomes: [
-      'Faster feature iteration and deployment cycles',
-      'Lower maintenance costs and technical debt',
-      'Enhanced security and compliance standards',
-    ],
-  },
-  {
-    icon: Users,
-    title: 'Fractional Technical Leadership',
-    description: 'Architecture decisions, vendor selection, roadmap refinement—without a full-time senior hire. You get strategic clarity and clean implementation patterns your internal team can continue.',
-    pain: 'Need technical guidance without full-time overhead.',
-    outcomes: [
-      'Clear technical direction and architecture',
-      'Informed vendor and tool selection decisions',
-      'Knowledge transfer to your internal team',
-    ],
-  },
-  {
-    icon: GitBranch,
-    title: 'Custom Software Development',
-    description: 'Tailored applications built with modern frameworks and best practices. From concept to deployment, we deliver reliable solutions that scale with your business.',
-    pain: 'Off-the-shelf tools don\'t fit your unique workflows.',
-    outcomes: [
+      'Modern, responsive website design',
       'Purpose-built tools that match your processes',
-      'Scalable architecture for future growth',
-      'Full documentation and maintainability',
+      'Improved reliability and performance',
+      'Enhanced customer experience',
     ],
   },
 ]
@@ -67,11 +56,11 @@ export default function Services() {
             className="space-y-6"
           >
             <h1 className="text-5xl md:text-6xl font-bold tracking-tight text-[#2D2D2D]">
-              Practical Modernization for{' '}
-              <span className="text-[#00A8E8]">Small Businesses</span>
+              Services for{' '}
+              <span className="text-[#00A8E8]">Growing Businesses</span>
             </h1>
             <p className="text-xl md:text-2xl text-[#6B7280] max-w-3xl mx-auto leading-relaxed">
-              We focus on the practical side of modernization—removing manual busywork, stabilizing fragile tools, and giving you clear technical direction. AI appears only where it cuts time or improves reliability.
+              We help growing businesses improve existing products and operations through advisory, integrations, and custom builds. We're consultants—not a product—using AI selectively when it clearly improves speed or accuracy.
             </p>
           </motion.div>
         </div>
@@ -99,7 +88,6 @@ export default function Services() {
                       </div>
                       <h2 className="text-3xl font-bold text-slate-900">{service.title}</h2>
                       <p className="text-slate-600 text-lg leading-relaxed">{service.description}</p>
-                      <p className="text-slate-600 text-lg leading-relaxed"><strong>Pain Point:</strong> {service.pain}</p>
                     </div>
                     
                     <div className="lg:col-span-2 space-y-6">
@@ -147,7 +135,7 @@ export default function Services() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
               <Link href="/contact">
-                <Button size="lg" className="bg-[#00A8E8] hover:bg-[#0096D1] text-white shadow-lg hover:shadow-xl transition-all duration-300 group">
+                <Button size="lg" className="bg-[#00A8E8] hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-600 text-white shadow-lg hover:shadow-2xl hover:shadow-blue-500/50 hover:scale-110 transition-all duration-300 group">
                   Contact for Quote
                   <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" weight="bold" />
                 </Button>
