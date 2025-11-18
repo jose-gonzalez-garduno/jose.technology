@@ -171,12 +171,12 @@ export default function About() {
                     <LinkedinLogo size={24} weight="bold" />
                     <span className="font-medium">LinkedIn</span>
                   </a>
-                  <a
-                    href="mailto:jose@jose.technology"
-                    className="inline-flex items-center gap-2 text-[#6B7280] hover:text-[#00A8E8] transition-colors"
+                  <a 
+                    href="mailto:contact@jose.technology"
+                    className="group inline-flex items-center gap-3 px-6 py-3 rounded-xl bg-[#F8FAFB] hover:bg-[#00A8E8]/10 text-[#6B7280] hover:text-[#00A8E8] transition-all duration-300 border-2 border-transparent hover:border-[#00A8E8]/20"
                   >
-                    <EnvelopeSimple size={24} weight="bold" />
-                    <span className="font-medium">jose@jose.technology</span>
+                    <EnvelopeSimple size={20} weight="duotone" className="group-hover:scale-110 transition-transform" />
+                    <span className="font-medium">contact@jose.technology</span>
                   </a>
                 </div>
                 <div className="pt-4">

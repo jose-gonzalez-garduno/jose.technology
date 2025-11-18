@@ -5,7 +5,7 @@ import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { Label } from '@/components/ui/label'
 import { Card } from '@/components/ui/card'
-import { EnvelopeSimple, Calendar, CheckCircle, PaperPlaneTilt } from '@phosphor-icons/react'
+import { EnvelopeSimple, Calendar, CheckCircle, PaperPlaneTilt, WarningCircle } from '@phosphor-icons/react'
 import { toast } from 'sonner'
 import { motion } from 'framer-motion'
 
@@ -18,28 +18,103 @@ export default function Contact() {
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [errors, setErrors] = useState<{
+    name?: string
+    email?: string
+    message?: string
+  }>({})
+
+  const validateForm = () => {
+    const newErrors: typeof errors = {}
+
+    if (!formData.name.trim()) {
+      newErrors.name = 'Name is required'
+    }
+
+    if (!formData.email.trim()) {
+      newErrors.email = 'Email is required'
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      newErrors.email = 'Please enter a valid email address'
+    }
+
+    if (!formData.message.trim()) {
+      newErrors.message = 'Message is required'
+    } else if (formData.message.length < 10) {
+      newErrors.message = 'Message must be at least 10 characters'
+    } else if (formData.message.length > 5000) {
+      newErrors.message = 'Message must be less than 5000 characters'
+    }
+
+    setErrors(newErrors)
+    return Object.keys(newErrors).length === 0
+  }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    
+    if (!validateForm()) {
+      toast.error('Please fix the errors in the form')
+      return
+    }
+
     setIsSubmitting(true)
 
-    await new Promise(resolve => setTimeout(resolve, 1000))
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
 
-    console.log('Contact form submission:', formData)
-    
-    setIsSubmitting(false)
-    setIsSubmitted(true)
-    toast.success('Message sent successfully! I\'ll get back to you soon.')
-    
-    setFormData({
-      name: '',
-      email: '',
-      company: '',
-      message: '',
-    })
+      const data = await response.json()
 
-    setTimeout(() => setIsSubmitted(false), 5000)
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to send message')
+      }
+
+      setIsSubmitted(true)
+      toast.success(
+        <div className="flex flex-col gap-1">
+          <p className="font-semibold">Message sent successfully!</p>
+          <p className="text-sm">Check your email for a confirmation.</p>
+        </div>
+      )
+      
+      setFormData({
+        name: '',
+        email: '',
+        company: '',
+        message: '',
+      })
+      setErrors({})
+
+      setTimeout(() => setIsSubmitted(false), 5000)
+    } catch (error) {
+      console.error('Error submitting form:', error)
+      const errorMessage = error instanceof Error ? error.message : 'Failed to send message. Please try again.'
+      toast.error(
+        <div className="flex items-start gap-2">
+          <WarningCircle size={20} weight="fill" className="text-red-500 mt-0.5" />
+          <p>{errorMessage}</p>
+        </div>
+      )
+    } finally {
+      setIsSubmitting(false)
+    }
   }
+
+  const handleInputChange = (field: keyof typeof formData, value: string) => {
+    setFormData({ ...formData, [field]: value })
+    // Clear error when user starts typing
+    if (errors[field as keyof typeof errors]) {
+      setErrors({ ...errors, [field]: undefined })
+    }
+  }
+
+  const characterCount = formData.message.length
+  const characterLimit = 5000
 
   return (
     <Layout>
@@ -85,57 +160,112 @@ export default function Contact() {
               <Card className="p-8 bg-white border-2 border-[#00A8E8]/10">
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="space-y-2">
-                    <Label htmlFor="name" className="text-sm font-semibold text-[#2D2D2D]">Name *</Label>
+                    <Label htmlFor="name" className="text-sm font-semibold text-[#2D2D2D]">
+                      Name *
+                    </Label>
                     <Input
                       id="name"
                       required
                       value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      onChange={(e) => handleInputChange('name', e.target.value)}
                       placeholder="Your name"
-                      className="border-2 border-[#E5E7EB] focus:border-[#00A8E8] transition-colors"
+                      className={`border-2 ${
+                        errors.name 
+                          ? 'border-red-500 focus:border-red-500' 
+                          : 'border-[#E5E7EB] focus:border-[#00A8E8]'
+                      } transition-colors`}
+                      aria-invalid={!!errors.name}
+                      aria-describedby={errors.name ? 'name-error' : undefined}
                     />
+                    {errors.name && (
+                      <p id="name-error" className="text-sm text-red-500 flex items-center gap-1">
+                        <WarningCircle size={16} weight="fill" />
+                        {errors.name}
+                      </p>
+                    )}
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="email" className="text-sm font-semibold text-[#2D2D2D]">Email *</Label>
+                    <Label htmlFor="email" className="text-sm font-semibold text-[#2D2D2D]">
+                      Email *
+                    </Label>
                     <Input
                       id="email"
                       type="email"
                       required
                       value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      onChange={(e) => handleInputChange('email', e.target.value)}
                       placeholder="your@email.com"
-                      className="border-2 border-[#E5E7EB] focus:border-[#00A8E8] transition-colors"
+                      className={`border-2 ${
+                        errors.email 
+                          ? 'border-red-500 focus:border-red-500' 
+                          : 'border-[#E5E7EB] focus:border-[#00A8E8]'
+                      } transition-colors`}
+                      aria-invalid={!!errors.email}
+                      aria-describedby={errors.email ? 'email-error' : undefined}
                     />
+                    {errors.email && (
+                      <p id="email-error" className="text-sm text-red-500 flex items-center gap-1">
+                        <WarningCircle size={16} weight="fill" />
+                        {errors.email}
+                      </p>
+                    )}
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="company" className="text-sm font-semibold text-[#2D2D2D]">Company</Label>
+                    <Label htmlFor="company" className="text-sm font-semibold text-[#2D2D2D]">
+                      Company
+                    </Label>
                     <Input
                       id="company"
                       value={formData.company}
-                      onChange={(e) => setFormData({ ...formData, company: e.target.value })}
+                      onChange={(e) => handleInputChange('company', e.target.value)}
                       placeholder="Your company name (optional)"
                       className="border-2 border-[#E5E7EB] focus:border-[#00A8E8] transition-colors"
                     />
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="message" className="text-sm font-semibold text-[#2D2D2D]">Message *</Label>
+                    <div className="flex items-center justify-between">
+                      <Label htmlFor="message" className="text-sm font-semibold text-[#2D2D2D]">
+                        Message *
+                      </Label>
+                      <span className={`text-xs ${
+                        characterCount > characterLimit 
+                          ? 'text-red-500' 
+                          : characterCount > characterLimit * 0.9 
+                          ? 'text-yellow-600' 
+                          : 'text-[#6B7280]'
+                      }`}>
+                        {characterCount}/{characterLimit}
+                      </span>
+                    </div>
                     <Textarea
                       id="message"
                       required
                       value={formData.message}
-                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                      onChange={(e) => handleInputChange('message', e.target.value)}
                       placeholder="Tell me about your project or question..."
                       rows={6}
-                      className="border-2 border-[#E5E7EB] focus:border-[#00A8E8] transition-colors resize-none"
+                      className={`border-2 ${
+                        errors.message 
+                          ? 'border-red-500 focus:border-red-500' 
+                          : 'border-[#E5E7EB] focus:border-[#00A8E8]'
+                      } transition-colors resize-none`}
+                      aria-invalid={!!errors.message}
+                      aria-describedby={errors.message ? 'message-error' : undefined}
                     />
+                    {errors.message && (
+                      <p id="message-error" className="text-sm text-red-500 flex items-center gap-1">
+                        <WarningCircle size={16} weight="fill" />
+                        {errors.message}
+                      </p>
+                    )}
                   </div>
 
                   <Button 
                     type="submit" 
-                    className="w-full bg-[#00A8E8] hover:bg-[#0096D1] text-white shadow-lg hover:shadow-xl transition-all duration-300" 
+                    className="w-full bg-[#00A8E8] hover:bg-[#0096D1] text-white shadow-lg hover:shadow-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed" 
                     disabled={isSubmitting || isSubmitted}
                     size="lg"
                   >
@@ -156,15 +286,24 @@ export default function Contact() {
                       </>
                     )}
                   </Button>
+
+                  {isSubmitted && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="p-4 bg-green-50 border-2 border-green-200 rounded-lg"
+                    >
+                      <p className="text-sm text-green-800 flex items-center gap-2">
+                        <CheckCircle size={20} weight="fill" className="text-green-600" />
+                        <span>
+                          <strong>Success!</strong> Check your email for a confirmation message.
+                        </span>
+                      </p>
+                    </motion.div>
+                  )}
                 </form>
               </Card>
 
-              <div className="px-4 py-3 rounded-lg bg-white border-2 border-[#00A8E8]/10">
-                <p className="text-sm text-[#6B7280]">
-                  <strong className="text-[#2D2D2D]">Note:</strong> This is a demo contact form. In production, messages would be 
-                  sent via email using a service like SendGrid or Mailgun configured through environment variables.
-                </p>
-              </div>
             </motion.div>
 
             <motion.div 
@@ -181,29 +320,15 @@ export default function Contact() {
               </div>
 
               <Card className="p-8 space-y-8 bg-white border-2 border-[#00A8E8]/10">
-                <div className="aspect-video bg-[#F8FAFB] rounded-xl flex items-center justify-center border-2 border-dashed border-[#E5E7EB]">
-                  <div className="text-center space-y-4 p-6">
-                    <div className="w-16 h-16 rounded-2xl bg-[#00A8E8]/10 flex items-center justify-center mx-auto">
-                      <Calendar size={32} className="text-[#00A8E8]" weight="duotone" />
-                    </div>
-                    <div>
-                      <h3 className="font-bold text-lg text-[#2D2D2D] mb-2">Calendly Integration</h3>
-                      <p className="text-sm text-[#6B7280]">
-                        Replace this placeholder with your Calendly embed URL
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                
-                <div className="space-y-3 px-4 py-3 rounded-lg bg-[#F8FAFB] border-2 border-[#00A8E8]/10">
-                  <p className="text-sm font-semibold text-[#2D2D2D]">
-                    To configure Calendly:
-                  </p>
-                  <ol className="list-decimal list-inside space-y-2 text-sm text-[#6B7280] ml-2">
-                    <li>Sign up for Calendly and create your booking page</li>
-                    <li>Get your embed URL from Calendly settings</li>
-                    <li>Replace the placeholder above with the Calendly iframe</li>
-                  </ol>
+                {/* Calendly Embed */}
+                <div className="rounded-xl overflow-hidden border-2 border-[#E5E7EB]">
+                  <iframe
+                    src="https://calendly.com/jose-technology-solutions/30min"
+                    width="100%"
+                    height="700"
+                    frameBorder="0"
+                    title="Schedule a 30-minute consultation"
+                  ></iframe>
                 </div>
 
                 <div className="pt-6 border-t-2 border-[#E5E7EB]">
@@ -211,11 +336,11 @@ export default function Contact() {
                     You can also reach me directly:
                   </p>
                   <a 
-                    href="mailto:jose@jose.technology"
+                    href="mailto:contact@jose.technology"
                     className="group inline-flex items-center gap-3 px-6 py-3 rounded-xl bg-[#F8FAFB] hover:bg-[#00A8E8]/10 text-[#6B7280] hover:text-[#00A8E8] transition-all duration-300 border-2 border-transparent hover:border-[#00A8E8]/20"
                   >
                     <EnvelopeSimple size={20} weight="duotone" className="group-hover:scale-110 transition-transform" />
-                    <span className="font-medium">jose@jose.technology</span>
+                    <span className="font-medium">contact@jose.technology</span>
                   </a>
                 </div>
               </Card>

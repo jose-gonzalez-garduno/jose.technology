@@ -96,7 +96,7 @@ export function Footer() {
                 <LinkedinLogo size={20} weight="duotone" />
               </a>
               <a
-                href="mailto:jose@jose.technology"
+                href="mailto:contact@jose.technology"
                 className="w-10 h-10 rounded-xl bg-muted hover:bg-accent/10 flex items-center justify-center text-muted-foreground hover:text-accent transition-all duration-300 hover:scale-110"
                 aria-label="Email"
               >
