@@ -1,237 +1,293 @@
-﻿import { Layout } from "@/components/layout/Layout"
+﻿import Head from 'next/head'
+import { Layout } from "@/components/layout/Layout"
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
-import { Badge } from '@/components/ui/badge'
-import { DownloadSimple, EnvelopeSimple, LinkedinLogo, GithubLogo, CheckCircle, ArrowRight } from '@phosphor-icons/react'
 import Link from 'next/link'
 import { motion, useReducedMotion } from 'framer-motion'
+import { CheckCircle, ArrowRight } from '@phosphor-icons/react'
 
-const skills = [
-  'Node.js', 'TypeScript', 'React', 'Python', 'Next.js',
-  'AI/ML Integration', 'System Architecture', 'Cloud Platforms',
-  'API Design', 'Database Design', 'DevOps', 'Technical Leadership',
-]
-
-const experience = [
+const projectHighlights = [
   {
-    title: 'Senior Full-Stack Engineer',
-    company: 'Tech Company',
-    period: '2020 - Present',
-    description: 'Led development of cloud-native applications and AI-powered features serving thousands of users.',
-    achievements: [
-      'Architected and deployed scalable microservices infrastructure',
-      'Implemented AI-driven automation reducing manual work by 60%',
-      'Mentored junior developers and established best practices',
-    ],
+    title: 'Enterprise Dialer System Optimization',
+    summary: 'Delivered scalable, compliant workflows in Genesys Cloud CX + Pega Platform for Fortune 500 client. Reduced agent idle time by 35%, improved call routing accuracy by 42%, ensured TCPA compliance.',
+    tech: 'Genesys Cloud CX, Pega PRPC, REST APIs, AWS Lambda',
+    metric: '35% reduction in idle time'
   },
   {
-    title: 'Technical Consultant',
-    company: 'Various Clients',
-    period: '2018 - Present',
-    description: 'Provided strategic technology consulting and hands-on development for small businesses and startups.',
-    achievements: [
-      'Modernized legacy systems for 10+ clients',
-      'Delivered custom integrations and automation solutions',
-      'Trained client teams on modern development practices',
-    ],
+    title: 'AWS Data Pipeline Automation',
+    summary: 'Architected serverless automation for high-volume data deletion across 12M+ records. Cut processing time from 6 hours to 45 minutes, reduced AWS costs by $2,400/month, maintained full audit trails.',
+    tech: 'AWS Lambda, DynamoDB, S3, Step Functions, Python',
+    metric: '88% faster processing'
+  },
+  {
+    title: 'Custom API Integration Platform',
+    summary: 'Built microservices-based integration layer connecting CRM, accounting, and fulfillment systems for mid-market SaaS company. Reduced API response times by 60%, eliminated manual data entry for 200+ daily transactions.',
+    tech: 'Node.js, Express, PostgreSQL, Redis, Docker',
+    metric: '60% faster API responses'
+  },
+  {
+    title: 'Manufacturing Workflow Automation',
+    summary: 'Implemented end-to-end order processing automation for industrial equipment manufacturer. Eliminated 15 hours/week of manual work, reduced order errors by 78%, improved customer delivery accuracy to 99.2%.',
+    tech: 'Python, FastAPI, PostgreSQL, RabbitMQ, React',
+    metric: '15 hours/week saved'
+  },
+  {
+    title: 'Legacy System Modernization',
+    summary: 'Migrated 10-year-old monolithic application to cloud-native microservices for financial services client. Improved system uptime from 97% to 99.8%, reduced deployment time from days to hours, cut hosting costs by 40%.',
+    tech: 'Java Spring Boot, Docker, Kubernetes, AWS ECS, PostgreSQL',
+    metric: '99.8% uptime achieved'
+  },
+  {
+    title: 'Real-Time Analytics Dashboard',
+    summary: 'Designed and deployed executive dashboard consolidating data from 7 disparate systems. Provided real-time KPI visibility, reduced report generation time from 2 days to instant, enabled data-driven decision making.',
+    tech: 'React, D3.js, Node.js, Elasticsearch, AWS',
+    metric: 'Real-time vs 2-day lag'
+  },
+  {
+    title: 'E-Commerce Platform Enhancement',
+    summary: 'Optimized checkout flow and payment processing for online retailer processing $2M+ monthly. Reduced cart abandonment by 23%, improved page load times by 55%, increased conversion rate by 18%.',
+    tech: 'Next.js, Stripe API, Redis, PostgreSQL, Vercel',
+    metric: '23% fewer abandonments'
+  },
+  {
+    title: 'Education Platform Development',
+    summary: 'Built interactive coding environment for technical education provider. Supported 500+ concurrent students, enabled real-time code collaboration, integrated automated grading reducing instructor workload by 40%.',
+    tech: 'React, Monaco Editor, WebSockets, Python, Docker',
+    metric: '500+ concurrent users'
   },
 ]
 
 export default function Portfolio() {
-  const prefersReducedMotion = useReducedMotion();
-  
+  const reduce = useReducedMotion();
   return (
     <Layout>
-      {/* Hero Section - Blueprint Style */}
+      <Head>
+        <title>Portfolio | jose.technology</title>
+        <meta name="description" content="Consulting expertise in enterprise systems, workflow automation, custom software, and modern website builds—outcome-focused delivery." />
+      </Head>
+
+      {/* Hero */}
       <section className="relative py-24 bg-gradient-subtle overflow-hidden">
-        <div className="absolute inset-0 blueprint-grid opacity-40" />
-        
-        <div className="max-w-4xl mx-auto px-6 relative z-10">
+        <div className="absolute inset-0 blueprint-grid opacity-30" />
+        <div className="max-w-5xl mx-auto px-6 text-center relative z-10">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3 }}
-            className="space-y-8"
+            initial={reduce ? undefined : { opacity: 0, y: 24 }}
+            animate={reduce ? undefined : { opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="space-y-6"
           >
-            <div className="space-y-6">
-              <h1 className="text-5xl md:text-6xl font-bold tracking-tight text-[#2D2D2D]">
-                Technical Portfolio &{' '}
-                <span className="text-[#00A8E8]">Resume</span>
-              </h1>
-              <p className="text-xl md:text-2xl text-[#6B7280] leading-relaxed">
-                Experienced full-stack engineer and technical consultant specializing in 
-                systems modernization, AI integration, and team leadership.
-              </p>
-            </div>
-            
-            <div className="flex flex-wrap gap-4">
-              <a href="/Jose_Gonzalez_G_Resume.pdf" download="Jose_Gonzalez_Resume.pdf">
-                <Button size="lg" className="bg-[#00A8E8] hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-600 text-white shadow-lg hover:shadow-2xl hover:shadow-blue-500/50 hover:scale-110 transition-all duration-300 group">
-                  <DownloadSimple className="mr-2 group-hover:translate-y-1 transition-transform" weight="bold" />
-                  Download Resume
-                </Button>
-              </a>
+            <h1 className="text-5xl md:text-6xl font-bold tracking-tight text-slate-900">
+              Expert Engineering & <span className="bg-gradient-to-r from-cyan-500 to-cyan-600 bg-clip-text text-transparent">Technology Consulting</span>
+            </h1>
+            <p className="text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
+              Trusted advisor for enterprise systems, workflow automation, custom software, and modern website builds—focused on measurable outcomes tailored to your needs.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center pt-2">
               <Link href="/contact">
-                <Button size="lg" variant="outline" className="border-2 border-[#00A8E8] text-[#00A8E8] hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-600 hover:text-white hover:border-transparent shadow-md hover:shadow-xl hover:scale-110 transition-all duration-300">
-                  <EnvelopeSimple className="mr-2" weight="bold" />
-                  Get in Touch
-                </Button>
+                <Button size="lg" className="bg-cyan-500 hover:bg-cyan-400 text-slate-900 font-semibold shadow-lg shadow-cyan-500/30 hover:shadow-cyan-400/40 transition">Request a Consulting Session</Button>
+              </Link>
+              <Link href="/services">
+                <Button size="lg" variant="outline" className="border-cyan-500 text-cyan-600 hover:bg-cyan-500/10 transition">View Services</Button>
               </Link>
             </div>
           </motion.div>
         </div>
       </section>
 
-      {/* Skills Section - Blueprint Style */}
+      {/* Professional Summary */}
       <section className="py-20 bg-white">
-        <div className="max-w-6xl mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+        <div className="max-w-5xl mx-auto px-6">
+          <motion.header
+            initial={reduce ? undefined : { opacity: 0, y: 24 }}
+            whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.45 }}
+            className="space-y-4"
           >
-            <h2 className="text-4xl font-bold text-[#2D2D2D] mb-8">Technical Skills</h2>
-            <Card className="p-8 bg-white border-2 border-[#00A8E8]/10">
-              <div className="flex flex-wrap gap-3">
-                {skills.map((skill, index) => (
-                  <motion.div
-                    key={skill}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.3, delay: index * 0.05 }}
-                  >
-                    <Badge className="px-4 py-2 text-sm font-medium bg-[#00A8E8]/10 text-[#00A8E8] hover:bg-[#00A8E8]/20 border-[#00A8E8]/20">
-                      {skill}
-                    </Badge>
-                  </motion.div>
-                ))}
-              </div>
-            </Card>
-          </motion.div>
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900">Professional Summary</h2>
+            <p className="text-lg md:text-xl text-slate-600 leading-relaxed">
+              Senior Software Engineer and emerging technical consultant translating complex requirements into actionable plans and scalable solutions. Proven record improving system reliability, streamlining workflows, modernizing products, and leading cross-functional delivery. Focused on measurable outcomes—cost reduction, compliance alignment, and improved customer experience.
+            </p>
+          </motion.header>
         </div>
       </section>
 
-      {/* Experience Section - Blueprint Style */}
-      <section className="py-20 bg-gradient-subtle relative overflow-hidden">
-        <div className="absolute inset-0 blueprint-grid opacity-30" />
-        
-        <div className="max-w-6xl mx-auto px-6 relative z-10">
-          <h2 className="text-4xl font-bold text-[#2D2D2D] mb-12">Professional Experience</h2>
-          <div className="space-y-8">
-            {experience.map((job, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-              >
-                <Card className="p-8 space-y-6 bg-white border-2 border-transparent hover:border-[#00A8E8]/20 hover:shadow-lg transition-all duration-300">
-                  <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-                    <div>
-                      <h3 className="text-2xl font-bold text-[#2D2D2D] mb-1">{job.title}</h3>
-                      <p className="text-lg text-[#00A8E8] font-medium">{job.company}</p>
-                    </div>
-                    <Badge className="w-fit px-4 py-2 text-sm bg-[#00A8E8]/10 text-[#00A8E8] border-[#00A8E8]/20">{job.period}</Badge>
-                  </div>
-                  <p className="text-[#6B7280] text-lg leading-relaxed">{job.description}</p>
-                  <div className="space-y-4">
-                    <h4 className="font-semibold text-lg text-[#2D2D2D]">Key Achievements:</h4>
-                    <ul className="space-y-3">
-                      {job.achievements.map((achievement, achIndex) => (
-                        <li key={achIndex} className="flex items-start gap-3">
-                          <CheckCircle size={20} className="text-[#00A8E8] flex-shrink-0 mt-0.5" weight="fill" />
-                          <span className="text-[#6B7280]">{achievement}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </Card>
-              </motion.div>
+      {/* Core Technical Expertise */}
+      <section className="py-20 bg-gradient-subtle">
+        <div className="max-w-6xl mx-auto px-6 space-y-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-900">Core Technical Expertise</h2>
+          <div className="grid md:grid-cols-2 gap-10">
+            <Card className="p-8 bg-white/90 backdrop-blur border border-cyan-500/10 hover:border-cyan-400/30 transition">
+              <h3 className="text-xl font-semibold text-slate-800">Engineering & Development</h3>
+              <ul className="mt-4 space-y-2 text-slate-600 text-sm md:text-base">
+                <li>Python, Java, JavaScript, Node.js, SQL</li>
+                <li>Frameworks: React, Express.js, Angular</li>
+                <li>REST APIs, microservices, serverless architecture</li>
+              </ul>
+            </Card>
+            <Card className="p-8 bg-white/90 backdrop-blur border border-cyan-500/10 hover:border-cyan-400/30 transition">
+              <h3 className="text-xl font-semibold text-slate-800">Workflow Automation & Integrations</h3>
+              <ul className="mt-4 space-y-2 text-slate-600 text-sm md:text-base">
+                <li>CI/CD pipelines, Git workflows</li>
+                <li>Containerized services & targeted automation</li>
+                <li>AI applied selectively for measurable value</li>
+              </ul>
+            </Card>
+            <Card className="p-8 bg-white/90 backdrop-blur border border-cyan-500/10 hover:border-cyan-400/30 transition">
+              <h3 className="text-xl font-semibold text-slate-800">Cloud Systems</h3>
+              <ul className="mt-4 space-y-2 text-slate-600 text-sm md:text-base">
+                <li>AWS (Databases, Functions, Pipelines)</li>
+                <li>Genesys Cloud CX (Certified Professional)</li>
+                <li>Pega Platform (Certified System Architect)</li>
+                <li>Alvaria/Noble System (Certified Noble University)</li>
+              </ul>
+            </Card>
+            <Card className="p-8 bg-white/90 backdrop-blur border border-cyan-500/10 hover:border-cyan-400/30 transition">
+              <h3 className="text-xl font-semibold text-slate-800">Compliance & Leadership</h3>
+              <ul className="mt-4 space-y-2 text-slate-600 text-sm md:text-base">
+                <li>Audit-ready workflows & secure coding practices</li>
+                <li>Agile sprint coordination & roadmap execution</li>
+                <li>Cross-functional stakeholder alignment</li>
+              </ul>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Services Offered */}
+      <section className="py-20 bg-white">
+        <div className="max-w-6xl mx-auto px-6 space-y-10">
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-900">Consulting Services</h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            <Card className="p-8 bg-gradient-to-br from-white/90 to-white/70 backdrop-blur border border-cyan-500/10 hover:border-cyan-400/40 hover:shadow-xl transition">
+              <h3 className="text-2xl font-semibold text-slate-900 mb-4">Technical Advisory</h3>
+              <p className="text-slate-600 leading-relaxed mb-6">
+                Strategic technology guidance for growing businesses—architecture decisions, vendor selection, and scalable roadmaps.
+              </p>
+              <div className="space-y-4 text-sm">
+                <div>
+                  <h4 className="font-semibold text-slate-800 mb-2">What You Get:</h4>
+                  <ul className="space-y-1 text-slate-600">
+                    <li>• System architecture review & recommendations</li>
+                    <li>• Technology stack evaluation & selection</li>
+                    <li>• Roadmap planning & prioritization</li>
+                    <li>• Risk assessment & mitigation strategies</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-slate-800 mb-1">Best For:</h4>
+                  <p className="text-slate-600">Small to mid-market companies needing senior technical leadership without full-time hire</p>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-slate-800 mb-1">Timeline:</h4>
+                  <p className="text-slate-600">2-4 weeks for initial assessment; ongoing retainer available</p>
+                </div>
+              </div>
+            </Card>
+
+            <Card className="p-8 bg-gradient-to-br from-white/90 to-white/70 backdrop-blur border border-cyan-500/10 hover:border-cyan-400/40 hover:shadow-xl transition">
+              <h3 className="text-2xl font-semibold text-slate-900 mb-4">Custom Software & Websites</h3>
+              <p className="text-slate-600 leading-relaxed mb-6">
+                Purpose-built web applications, modern websites, and bespoke tools designed to solve your specific business challenges.
+              </p>
+              <div className="space-y-4 text-sm">
+                <div>
+                  <h4 className="font-semibold text-slate-800 mb-2">What You Get:</h4>
+                  <ul className="space-y-1 text-slate-600">
+                    <li>• Full-stack web application development</li>
+                    <li>• Modern, responsive website design & build</li>
+                    <li>• Custom internal tools & dashboards</li>
+                    <li>• Mobile-responsive, cloud-ready delivery</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-slate-800 mb-1">Best For:</h4>
+                  <p className="text-slate-600">Businesses needing custom solutions that off-the-shelf software can't provide</p>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-slate-800 mb-1">Timeline:</h4>
+                  <p className="text-slate-600">4-12 weeks depending on scope; iterative delivery every 2 weeks</p>
+                </div>
+              </div>
+            </Card>
+
+            <Card className="p-8 bg-gradient-to-br from-white/90 to-white/70 backdrop-blur border border-cyan-500/10 hover:border-cyan-400/40 hover:shadow-xl transition">
+              <h3 className="text-2xl font-semibold text-slate-900 mb-4">Workflow Automation</h3>
+              <p className="text-slate-600 leading-relaxed mb-6">
+                Eliminate repetitive tasks, connect your existing tools, and intelligently route information—with selective AI where it adds value.
+              </p>
+              <div className="space-y-4 text-sm">
+                <div>
+                  <h4 className="font-semibold text-slate-800 mb-2">What You Get:</h4>
+                  <ul className="space-y-1 text-slate-600">
+                    <li>• System integration & data synchronization</li>
+                    <li>• Process automation & workflow orchestration</li>
+                    <li>• Email/document processing pipelines</li>
+                    <li>• Targeted AI for classification & routing</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-slate-800 mb-1">Best For:</h4>
+                  <p className="text-slate-600">Teams spending 10+ hours/week on manual data entry or repetitive tasks</p>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-slate-800 mb-1">Timeline:</h4>
+                  <p className="text-slate-600">2-6 weeks for initial automation; expandable as needs grow</p>
+                </div>
+              </div>
+            </Card>
+          </div>
+          <div className="mt-8 p-6 bg-cyan-50 border border-cyan-200 rounded-lg">
+            <p className="text-sm text-slate-700">
+              <span className="font-semibold text-cyan-700">AI Integration Philosophy:</span> I apply AI solutions selectively—only when they demonstrably improve speed, accuracy, or reliability. No AI for the sake of AI.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Project Highlights */}
+      <section className="py-20 bg-gradient-subtle">
+        <div className="max-w-6xl mx-auto px-6 space-y-10">
+          <div className="text-center space-y-4 mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900">Project Highlights</h2>
+            <p className="text-lg text-slate-600 max-w-3xl mx-auto">
+              Real projects, real results. Each engagement focused on measurable outcomes that drive business value.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 gap-8">
+            {projectHighlights.map((p) => (
+              <Card key={p.title} className="p-8 bg-white/90 backdrop-blur border border-cyan-500/10 hover:border-cyan-400/40 hover:shadow-xl transition-all duration-300 group">
+                <div className="flex items-start justify-between mb-4">
+                  <h3 className="text-xl font-semibold text-slate-900 group-hover:text-cyan-600 transition-colors">{p.title}</h3>
+                  <span className="px-3 py-1 bg-cyan-100 text-cyan-700 text-xs font-semibold rounded-full whitespace-nowrap ml-3">{p.metric}</span>
+                </div>
+                <p className="text-slate-600 leading-relaxed mb-4">{p.summary}</p>
+                <div className="pt-4 border-t border-slate-200">
+                  <p className="text-xs text-slate-500 font-medium">Tech Stack:</p>
+                  <p className="text-sm text-slate-600 mt-1">{p.tech}</p>
+                </div>
+              </Card>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Connect Section - Blueprint Style */}
-      <section className="py-20 bg-white">
-        <div className="max-w-6xl mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.3 }}
-          >
-            <h2 className="text-4xl font-bold text-[#2D2D2D] mb-8">Connect With Me</h2>
-            <Card className="p-8 bg-white border-2 border-[#00A8E8]/10">
-              <div className="flex flex-wrap gap-6">
-                <a
-                  href="https://github.com/jose-gonzalez-garduno"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group inline-flex items-center gap-3 px-6 py-3 rounded-lg bg-[#F8FAFB] hover:bg-[#00A8E8]/10 text-[#6B7280] hover:text-[#00A8E8] transition-all duration-300 border-2 border-transparent hover:border-[#00A8E8]/20"
-                >
-                  <GithubLogo size={24} weight="duotone" className="group-hover:scale-110 transition-transform" />
-                  <span className="font-semibold">GitHub</span>
-                </a>
-                <a
-                  href="https://linkedin.com/in/josegonzalez"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group inline-flex items-center gap-3 px-6 py-3 rounded-lg bg-[#F8FAFB] hover:bg-[#00A8E8]/10 text-[#6B7280] hover:text-[#00A8E8] transition-all duration-300 border-2 border-transparent hover:border-[#00A8E8]/20"
-                >
-                  <LinkedinLogo size={24} weight="duotone" className="group-hover:scale-110 transition-transform" />
-                  <span className="font-semibold">LinkedIn</span>
-                </a>
-                <a
-                  href="mailto:contact@jose.technology"
-                  className="group inline-flex items-center gap-3 px-6 py-3 rounded-lg bg-[#F8FAFB] hover:bg-[#00A8E8]/10 text-[#6B7280] hover:text-[#00A8E8] transition-all duration-300 border-2 border-transparent hover:border-[#00A8E8]/20"
-                >
-                  <EnvelopeSimple size={24} weight="duotone" className="group-hover:scale-110 transition-transform" />
-                  <span className="font-semibold">Email</span>
-                </a>
-              </div>
-            </Card>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* CTA Section - Blueprint Style */}
-      <section className="py-24 bg-gradient-cyan relative overflow-hidden">
+      {/* Final CTA */}
+      <section className="py-24 bg-gradient-cyan text-center relative overflow-hidden">
         <div className="absolute inset-0 blueprint-grid opacity-40" />
-        
-        <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.3 }}
-            className="space-y-8"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold text-[#2D2D2D]">
-              Looking to Hire?
-            </h2>
-            <p className="text-xl text-[#6B7280] max-w-2xl mx-auto leading-relaxed">
-              I'm available for contract work, consulting engagements, and full-time opportunities. 
-              Let's discuss how I can contribute to your team.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
-              <Link href="/contact">
-                <Button size="lg" className="bg-[#00A8E8] hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-600 text-white shadow-lg hover:shadow-2xl hover:shadow-blue-500/50 hover:scale-110 transition-all duration-300 group">
-                  Schedule a Call
-                  <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" weight="bold" />
-                </Button>
-              </Link>
-              <a href="/Jose_Gonzalez_G_Resume.pdf" download="Jose_Gonzalez_Resume.pdf">
-                <Button size="lg" variant="outline" className="border-2 border-[#2D2D2D] text-[#2D2D2D] hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-600 hover:text-white hover:border-transparent shadow-md hover:shadow-xl hover:scale-110 transition-all duration-300">
-                  <DownloadSimple className="mr-2" weight="bold" />
-                  Download Resume
-                </Button>
-              </a>
-            </div>
-          </motion.div>
+        <div className="max-w-4xl mx-auto px-6 relative z-10 space-y-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-900">Let’s Work Together</h2>
+          <p className="text-lg md:text-xl text-slate-700 leading-relaxed max-w-2xl mx-auto">
+            Solve your engineering, integration, and workflow challenges with tailored solutions—from modern websites to targeted automation.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link href="/contact">
+              <Button size="lg" className="bg-slate-900 hover:bg-slate-800 text-white font-semibold shadow-lg shadow-slate-900/30 hover:shadow-slate-900/50 transition">Request a Consulting Session</Button>
+            </Link>
+            <Link href="/services">
+              <Button size="lg" variant="outline" className="border-slate-900 text-slate-900 hover:bg-slate-900/5 transition">View Services</Button>
+            </Link>
+          </div>
         </div>
       </section>
     </Layout>
