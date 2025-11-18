@@ -8,52 +8,46 @@ import { motion } from 'framer-motion'
 const services = [
   {
     icon: Lightning,
-    title: 'AI Consulting & Implementation',
-    description: 'Strategic AI integration to automate processes, enhance decision-making, and unlock new business opportunities.',
+    title: 'Automation & Integrations',
+    description: 'Cut repetitive handoffs and retyping. We integrate your tools (CRM, invoicing, helpdesk) and introduce targeted automation—sometimes assisted by AI—for classification, routing, and summarization.',
+    pain: 'Manual data handoffs slow you down.',
     outcomes: [
-      'Reduced operational costs through intelligent automation',
-      'Data-driven insights for better business decisions',
-      'Competitive advantage through AI-powered features',
+      'Fewer repetitive tasks and faster customer response',
+      'Lower error rate from automated data flow',
+      'Eliminated data silos across platforms',
     ],
   },
   {
     icon: Rocket,
     title: 'Systems Modernization',
-    description: 'Transform legacy systems into modern, scalable, cloud-native applications that grow with your business.',
+    description: 'Move from brittle legacy scripts or outdated frameworks to maintainable, secure, documented systems—improving release speed and reducing operational risk.',
+    pain: 'Legacy systems hold back your agility.',
     outcomes: [
-      'Improved system performance and reliability',
+      'Faster feature iteration and deployment cycles',
       'Lower maintenance costs and technical debt',
-      'Enhanced security and compliance',
+      'Enhanced security and compliance standards',
     ],
   },
   {
     icon: Users,
-    title: 'Development Teams & Contracting',
-    description: 'Experienced technical leadership and full-stack development teams to execute your projects with excellence.',
+    title: 'Fractional Technical Leadership',
+    description: 'Architecture decisions, vendor selection, roadmap refinement—without a full-time senior hire. You get strategic clarity and clean implementation patterns your internal team can continue.',
+    pain: 'Need technical guidance without full-time overhead.',
     outcomes: [
-      'On-time, on-budget project delivery',
-      'Access to senior-level technical expertise',
-      'Flexible engagement models to fit your needs',
+      'Clear technical direction and architecture',
+      'Informed vendor and tool selection decisions',
+      'Knowledge transfer to your internal team',
     ],
   },
   {
     icon: GitBranch,
-    title: 'System Integrations',
-    description: 'Connect your tools and platforms seamlessly to create a unified, efficient technology ecosystem.',
+    title: 'Custom Software Development',
+    description: 'Tailored applications built with modern frameworks and best practices. From concept to deployment, we deliver reliable solutions that scale with your business.',
+    pain: 'Off-the-shelf tools don\'t fit your unique workflows.',
     outcomes: [
-      'Eliminated data silos and manual data entry',
-      'Streamlined workflows across platforms',
-      'Real-time data synchronization',
-    ],
-  },
-  {
-    icon: GraduationCap,
-    title: 'Technical Training & Workshops',
-    description: 'Empower your team with modern development practices, AI tools, and technical skills through hands-on training.',
-    outcomes: [
-      'Increased team productivity and confidence',
-      'Reduced dependency on external consultants',
-      'Faster adoption of new technologies',
+      'Purpose-built tools that match your processes',
+      'Scalable architecture for future growth',
+      'Full documentation and maintainability',
     ],
   },
 ]
@@ -73,12 +67,11 @@ export default function Services() {
             className="space-y-6"
           >
             <h1 className="text-5xl md:text-6xl font-bold tracking-tight text-[#2D2D2D]">
-              Technology Services for{' '}
-              <span className="text-[#00A8E8]">Growing Businesses</span>
+              Practical Modernization for{' '}
+              <span className="text-[#00A8E8]">Small Businesses</span>
             </h1>
             <p className="text-xl md:text-2xl text-[#6B7280] max-w-3xl mx-auto leading-relaxed">
-              From AI consulting to systems modernization, I help small businesses leverage technology 
-              to compete, scale, and thrive.
+              We focus on the practical side of modernization—removing manual busywork, stabilizing fragile tools, and giving you clear technical direction. AI appears only where it cuts time or improves reliability.
             </p>
           </motion.div>
         </div>
@@ -106,6 +99,7 @@ export default function Services() {
                       </div>
                       <h2 className="text-3xl font-bold text-slate-900">{service.title}</h2>
                       <p className="text-slate-600 text-lg leading-relaxed">{service.description}</p>
+                      <p className="text-slate-600 text-lg leading-relaxed"><strong>Pain Point:</strong> {service.pain}</p>
                     </div>
                     
                     <div className="lg:col-span-2 space-y-6">

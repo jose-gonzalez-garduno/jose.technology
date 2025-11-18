@@ -22,7 +22,7 @@ export function Footer() {
               </h3>
             </div>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              Professional technology consulting and AI services for small businesses.
+              Modernization, automation & advisory for small business.
             </p>
           </div>
 

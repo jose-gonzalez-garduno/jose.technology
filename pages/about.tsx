@@ -24,7 +24,7 @@ export default function About() {
                 About Jose Technology Solutions
               </h1>
               <p className="text-xl text-[#6B7280] leading-relaxed">
-                Helping small businesses leverage modern technology and AI to compete, scale, and succeed.
+                We help small businesses modernize the systems they depend on—focusing on automation and clarity rather than chasing trends.
               </p>
             </motion.div>
             <motion.div 
@@ -133,6 +133,27 @@ export default function About() {
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Responsible AI Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-4xl mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="space-y-6"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-[#2D2D2D]">Responsible Use of AI</h2>
+            <Card className="p-8 bg-gradient-to-br from-cyan-50 to-blue-50 border-2 border-cyan-200">
+              <p className="text-lg text-[#4B5563] leading-relaxed">
+                We apply AI only where it improves reliability or reduces manual load—no black-box promises or unnecessary data risk. 
+                Every AI implementation is transparent, business-aligned, and designed with security and ethics in mind.
+              </p>
+            </Card>
+          </motion.div>
         </div>
       </section>
 

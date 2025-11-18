@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <Layout>
       {/* Hero Section - Blueprint Style with Animated Background */}
-      <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-cyan-950">
+      <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden from-slate-900 via-slate-800 to-cyan-950">
         {/* Animated Background Boxes */}
         <div className="absolute inset-0 w-full h-full">
           <Boxes />
@@ -46,15 +46,14 @@ export default function Home() {
 
             {/* Hero Headline */}
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-tight">
-              Technology Solutions
+              Modernize and Automate
               <br />
-              <span className="bg-gradient-to-r from-cyan-400 via-cyan-300 to-cyan-500 bg-clip-text text-transparent">Built for Growth</span>
+              <span className="bg-gradient-to-r from-cyan-400 via-cyan-300 to-cyan-500 bg-clip-text text-transparent">Your Small Business</span>
             </h1>
 
             {/* Subheadline */}
             <p className="text-xl md:text-2xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
-              Full-stack development, technical consulting, and digital solutions 
-              that help small businesses scale efficiently.
+              We map your workflows, prioritize high-impact changes, and deliver lean automation & system upgrades—using AI only when it measurably helps.
             </p>
 
             {/* CTA Buttons */}
@@ -64,15 +63,15 @@ export default function Home() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4"
             >
-              <Link href="/services">
+              <Link href="/contact">
                 <Button size="lg" className="bg-cyan-500 hover:bg-cyan-400 text-slate-900 font-semibold shadow-lg shadow-cyan-500/30 hover:shadow-xl hover:shadow-cyan-400/40 transition-all duration-300 group">
-                  View Services
+                  Start a Modernization Review
                   <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" weight="bold" />
                 </Button>
               </Link>
-              <Link href="/contact">
+              <Link href="/services">
                 <Button size="lg" variant="outline" className="border-2 border-cyan-400 text-cyan-300 hover:bg-cyan-500/10 hover:text-cyan-200 backdrop-blur-sm transition-colors duration-300">
-                  Get in Touch
+                  How We Work
                 </Button>
               </Link>
             </motion.div>
@@ -86,12 +85,12 @@ export default function Home() {
             >
               <div className="flex items-center gap-2">
                 <CheckCircle weight="fill" className="text-cyan-400" size={20} />
-                <span>Trusted by Small Businesses</span>
+                <span>Practical Modernization</span>
               </div>
               <div className="hidden sm:block w-px h-4 bg-slate-600" />
               <div className="hidden sm:flex items-center gap-2">
                 <CheckCircle weight="fill" className="text-cyan-400" size={20} />
-                <span>Full-Stack Expertise</span>
+                <span>Measurable Outcomes</span>
               </div>
             </motion.div>
           </motion.div>
@@ -169,6 +168,137 @@ export default function Home() {
             <Link href="/services">
               <Button size="lg" variant="outline" className="border-2 border-[#00A8E8] text-[#00A8E8] hover:bg-[#00A8E8]/5 transition-colors duration-300 group">
                 View All Services
+                <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" weight="bold" />
+              </Button>
+            </Link>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Outcomes / Metrics Band */}
+      <section className="py-12 bg-slate-900 border-y border-cyan-500/20">
+        <div className="max-w-6xl mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center"
+          >
+            <div className="space-y-2">
+              <div className="text-3xl md:text-4xl font-bold text-cyan-400">37%</div>
+              <p className="text-sm text-slate-400">Average reduction in manual data entry</p>
+            </div>
+            <div className="space-y-2">
+              <div className="text-3xl md:text-4xl font-bold text-cyan-400">2-4×</div>
+              <p className="text-sm text-slate-400">Faster feature iteration after stack upgrade</p>
+            </div>
+            <div className="space-y-2">
+              <div className="text-3xl md:text-4xl font-bold text-cyan-400">25%</div>
+              <p className="text-sm text-slate-400">Lower monthly SaaS spend via consolidation</p>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* How We Work - Methodology Section */}
+      <section className="py-24 bg-white relative overflow-hidden">
+        <div className="max-w-6xl mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-[#2D2D2D] mb-4">
+              How We Work
+            </h2>
+            <p className="text-lg text-[#6B7280] max-w-2xl mx-auto">
+              A proven process focused on quick wins and measurable outcomes
+            </p>
+          </motion.div>
+
+          <div className="relative">
+            {/* Timeline Line */}
+            <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-cyan-400 via-blue-500 to-purple-600 opacity-20"></div>
+
+            <div className="space-y-12">
+              {[
+                {
+                  number: '01',
+                  title: 'Discovery & Workflow Mapping',
+                  description: 'We analyze your current processes, identify bottlenecks, and understand your team\'s daily pain points.'
+                },
+                {
+                  number: '02',
+                  title: 'Bottleneck & Opportunity Prioritization',
+                  description: 'Together we rank improvements by impact vs. effort, creating a clear roadmap for high-value changes.'
+                },
+                {
+                  number: '03',
+                  title: 'Pilot & Validation',
+                  description: 'Time-boxed implementation of the highest-priority improvement. We build, test, and refine before scaling.'
+                },
+                {
+                  number: '04',
+                  title: 'Rollout & Knowledge Transfer',
+                  description: 'We deploy the solution, train your team, and document everything so you can maintain and extend it.'
+                },
+                {
+                  number: '05',
+                  title: 'Measurement & Iteration',
+                  description: 'Track results, gather feedback, and refine. Then move to the next priority on your roadmap.'
+                }
+              ].map((step, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  className="relative"
+                >
+                  <div className={`flex flex-col md:flex-row gap-8 items-center ${
+                    index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
+                  }`}>
+                    {/* Content Card */}
+                    <div className="flex-1">
+                      <Card className="p-8 bg-white border-2 border-cyan-400/20 hover:border-cyan-400/50 hover:shadow-xl transition-all duration-300">
+                        <div className="flex items-start gap-4">
+                          <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-cyan-500/30">
+                            {step.number}
+                          </div>
+                          <div className="flex-1">
+                            <h3 className="text-xl font-bold text-[#2D2D2D] mb-2">
+                              {step.title}
+                            </h3>
+                            <p className="text-[#6B7280] leading-relaxed">
+                              {step.description}
+                            </p>
+                          </div>
+                        </div>
+                      </Card>
+                    </div>
+
+                    {/* Spacer for timeline alignment */}
+                    <div className="hidden md:block flex-1"></div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+            className="text-center mt-16"
+          >
+            <Link href="/contact">
+              <Button size="lg" className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 group">
+                Start Your Modernization Review
                 <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" weight="bold" />
               </Button>
             </Link>
