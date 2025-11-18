@@ -1,41 +1,71 @@
 "use client";
 import React from "react";
+import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 export const BoxesCore = ({ className, ...rest }: { className?: string }) => {
+  const rows = new Array(150).fill(1);
+  const cols = new Array(100).fill(1);
+  const colors = [
+    "rgb(0 168 232)",
+    "rgb(51 185 245)",
+    "rgb(0 135 190)",
+    "rgb(125 211 252)",
+    "rgb(56 189 248)",
+  ];
+  
+  const getRandomColor = () => {
+    return colors[Math.floor(Math.random() * colors.length)];
+  };
+
   return (
     <div
+      style={{
+        transform: `translate(-40%,-60%) skewX(-48deg) skewY(14deg) scale(0.675) rotate(0deg) translateZ(0)`,
+      }}
       className={cn(
-        "absolute inset-0 w-full h-full z-0 overflow-hidden",
+        "absolute left-1/4 p-4 -top-1/4 flex  -translate-x-1/2 -translate-y-1/2 w-full h-full z-0 ",
         className
       )}
       {...rest}
     >
-      {/* Lightweight CSS-based grid background */}
-      <div 
-        className="absolute inset-0 opacity-20"
-        style={{
-          backgroundImage: `
-            linear-gradient(to right, rgb(51 185 245 / 0.1) 1px, transparent 1px),
-            linear-gradient(to bottom, rgb(51 185 245 / 0.1) 1px, transparent 1px)
-          `,
-          backgroundSize: '40px 40px',
-          transform: 'skewY(-3deg)',
-        }}
-      />
-      
-      {/* Animated gradient overlay */}
-      <div 
-        className="absolute inset-0 opacity-30"
-        style={{
-          background: `
-            radial-gradient(circle at 20% 50%, rgb(0 168 232 / 0.15) 0%, transparent 50%),
-            radial-gradient(circle at 80% 80%, rgb(125 211 252 / 0.15) 0%, transparent 50%),
-            radial-gradient(circle at 40% 20%, rgb(147 197 253 / 0.15) 0%, transparent 50%)
-          `,
-          animation: 'pulse 4s ease-in-out infinite',
-        }}
-      />
+      {rows.map((_, i) => (
+        <motion.div
+          key={`row` + i}
+          className="w-16 h-8 border-l border-slate-700 relative"
+        >
+          {cols.map((_, j) => (
+            <motion.div
+              whileHover={{
+                backgroundColor: getRandomColor(),
+                transition: { duration: 0 },
+              }}
+              animate={{
+                transition: { duration: 2 },
+              }}
+              key={`col` + j}
+              className="w-16 h-8 border-r border-t border-slate-700 relative"
+            >
+              {j % 2 === 0 && i % 2 === 0 ? (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth="1.5"
+                  stroke="currentColor"
+                  className="absolute h-6 w-10 -top-[14px] -left-[22px] text-slate-700 stroke-[1px] pointer-events-none"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M12 6v12m6-6H6"
+                  />
+                </svg>
+              ) : null}
+            </motion.div>
+          ))}
+        </motion.div>
+      ))}
     </div>
   );
 };

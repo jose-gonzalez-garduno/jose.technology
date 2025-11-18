@@ -82,3 +82,14 @@
 .bg-gradient-dark {
   background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%);
 }
+
+/* Animation keyframes for pulsing radial overlays */
+@keyframes pulse {
+  0%, 100% { opacity: 0.30; transform: scale(1); }
+  50% { opacity: 0.50; transform: scale(1.02); }
+}
+
+/* Utility to apply pulse if needed */
+.animate-pulse-overlay {
+  animation: pulse 5s ease-in-out infinite;
+}

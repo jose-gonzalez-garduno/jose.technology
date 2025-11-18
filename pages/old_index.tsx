@@ -1,32 +1,12 @@
-﻿import { motion, useReducedMotion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { Layout } from '@/components/layout/Layout';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Boxes } from '@/components/ui/background-boxes';
 import { ArrowRight, CheckCircle, Code, Palette, Rocket } from '@phosphor-icons/react';
-import type { Transition } from 'framer-motion';
 
 export default function Home() {
-  const prefersReducedMotion = useReducedMotion();
-  
-  // Simplified animation config for better performance
-  const fadeInUp = prefersReducedMotion 
-    ? {} 
-    : {
-        initial: { opacity: 0, y: 20 },
-        animate: { opacity: 1, y: 0 },
-        transition: { duration: 0.4, ease: [0.4, 0, 0.2, 1] } as Transition
-      };
-
-  const fadeIn = prefersReducedMotion
-    ? {}
-    : {
-        initial: { opacity: 0 },
-        animate: { opacity: 1 },
-        transition: { duration: 0.4 } as Transition
-      };
-
   return (
     <Layout>
       {/* Hero Section - Blueprint Style with Animated Background */}
@@ -41,7 +21,9 @@ export default function Home() {
         
         <div className="relative z-20 max-w-6xl mx-auto px-6 py-12 text-center">
           <motion.div
-            {...fadeInUp}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
             className="space-y-5 backdrop-blur-md bg-gradient-to-br from-slate-800/70 via-blue-900/60 to-cyan-900/70 rounded-2xl p-6 md:p-8 shadow-xl border border-cyan-400/30 ring-1 ring-cyan-400/20"
           >
             {/* Trust Indicator */}
@@ -76,7 +58,9 @@ export default function Home() {
 
             {/* CTA Buttons */}
             <motion.div
-              {...fadeInUp}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
               className="flex flex-col sm:flex-row gap-3 justify-center items-center pt-2"
             >
               <Link href="/contact">
@@ -94,7 +78,9 @@ export default function Home() {
 
             {/* Social Proof */}
             <motion.div
-              {...fadeIn}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
               className="flex items-center justify-center gap-8 pt-6 text-sm text-slate-400"
             >
               <div className="flex items-center gap-2 text-white">
@@ -122,10 +108,10 @@ export default function Home() {
         
         <div className="max-w-6xl mx-auto px-6 relative z-10">
           <motion.div 
-            initial={prefersReducedMotion ? undefined : { opacity: 0, y: 20 }}
-            whileInView={prefersReducedMotion ? undefined : { opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.4 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
             <h2 className="text-4xl md:text-5xl font-bold text-[#2D2D2D] mb-4">
@@ -159,10 +145,10 @@ export default function Home() {
             ].map((service, index) => (
               <motion.div
                 key={service.title}
-                initial={prefersReducedMotion ? undefined : { opacity: 0, y: 20 }}
-                whileInView={prefersReducedMotion ? undefined : { opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.3, delay: index * 0.05 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
               >
                 <Card className="p-8 h-full bg-white border-2 border-transparent hover:border-[#00A8E8]/20 transition-all duration-300 hover:shadow-lg">
                   <service.icon size={48} weight="duotone" className="text-[#00A8E8] mb-6" />
@@ -178,10 +164,10 @@ export default function Home() {
           </div>
 
           <motion.div
-            initial={prefersReducedMotion ? undefined : { opacity: 0, y: 20 }}
-            whileInView={prefersReducedMotion ? undefined : { opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.3, delay: 0.2 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.4 }}
             className="text-center mt-12"
           >
             <Link href="/services">
@@ -198,10 +184,10 @@ export default function Home() {
       <section className="py-12 bg-slate-900 border-y border-cyan-500/20">
         <div className="max-w-6xl mx-auto px-6">
           <motion.div
-            initial={prefersReducedMotion ? undefined : { opacity: 0, y: 20 }}
-            whileInView={prefersReducedMotion ? undefined : { opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.4 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
             className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center"
           >
             <div className="space-y-2">
@@ -224,10 +210,10 @@ export default function Home() {
       <section id="how-we-work" className="py-24 bg-white relative overflow-hidden">
         <div className="max-w-6xl mx-auto px-6">
           <motion.div
-            initial={prefersReducedMotion ? undefined : { opacity: 0, y: 20 }}
-            whileInView={prefersReducedMotion ? undefined : { opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.4 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
             <h2 className="text-4xl md:text-5xl font-bold text-[#2D2D2D] mb-4">
@@ -272,10 +258,10 @@ export default function Home() {
               ].map((step, index) => (
                 <motion.div
                   key={index}
-                  initial={prefersReducedMotion ? undefined : { opacity: 0, y: 30 }}
-                  whileInView={prefersReducedMotion ? undefined : { opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-50px" }}
-                  transition={{ duration: 0.3, delay: index * 0.05 }}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
                   className="relative"
                 >
                   <div className={`flex flex-col md:flex-row gap-8 items-center ${
@@ -309,10 +295,10 @@ export default function Home() {
           </div>
 
           <motion.div
-            initial={prefersReducedMotion ? undefined : { opacity: 0, y: 20 }}
-            whileInView={prefersReducedMotion ? undefined : { opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.3, delay: 0.3 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.6 }}
             className="text-center mt-16"
           >
             <Link href="/contact">
@@ -331,10 +317,10 @@ export default function Home() {
         
         <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
           <motion.div
-            initial={prefersReducedMotion ? undefined : { opacity: 0, y: 20 }}
-            whileInView={prefersReducedMotion ? undefined : { opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.4 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
             className="space-y-8"
           >
             <h2 className="text-4xl md:text-5xl font-bold text-slate-900">
