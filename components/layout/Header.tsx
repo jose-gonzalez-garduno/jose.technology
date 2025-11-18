@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { useRouter } from 'next/router'
 import { Button } from '@/components/ui/button'
 import { List, X } from '@phosphor-icons/react'
@@ -22,10 +23,13 @@ export function Header() {
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/80 backdrop-blur-xl supports-[backdrop-filter]:bg-background/60">
       <div className="max-w-6xl mx-auto px-6 flex h-16 items-center justify-between">
         <Link href="/" className="flex items-center space-x-2 group">
-          <img 
+          <Image 
             src="/icon_and_name_logo.png"
             alt="jose.technology" 
+            width={150}
+            height={32}
             className="h-8 w-auto transition-transform duration-300 group-hover:scale-105"
+            priority
           />
         </Link>
 
@@ -75,7 +79,7 @@ export function Header() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.15, ease: "easeOut" }}
             className="md:hidden border-t border-border/40 bg-background/95 backdrop-blur-xl overflow-hidden"
           >
             <nav className="flex flex-col gap-1 p-4">
@@ -83,7 +87,7 @@ export function Header() {
                 <Link
                   key={item.path}
                   href={item.path}
-                  className={`px-4 py-3 rounded-lg text-sm font-medium transition-colors ${
+                  className={`px-4 py-3 rounded-lg text-sm font-medium transition-colors duration-150 ${
                     isActive(item.path)
                       ? 'bg-primary/10 text-primary'
                       : 'text-muted-foreground hover:text-foreground hover:bg-accent/10'
