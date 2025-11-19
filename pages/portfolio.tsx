@@ -83,11 +83,11 @@ export default function Portfolio() {
               Trusted advisor for enterprise systems, workflow automation, custom software, and modern website builds—focused on measurable outcomes tailored to your needs.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-2">
-              <Link href="/contact">
-                <Button size="lg" className="bg-cyan-500 hover:bg-cyan-400 text-slate-900 font-semibold shadow-lg shadow-cyan-500/30 hover:shadow-cyan-400/40 transition">Request a Consulting Session</Button>
+              <Link href="/contact"> 
+                <Button size="lg" className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-600 text-white shadow-lg hover:shadow-2xl hover:shadow-blue-500/50 hover:scale-110 transition-all duration-300 group">Request a Consulting Session</Button>
               </Link>
               <Link href="/services">
-                <Button size="lg" variant="outline" className="border-cyan-500 text-cyan-600 hover:bg-cyan-500/10 transition">View Services</Button>
+                <Button size="lg" variant="outline" className="border-cyan-500 text-cyan-600 hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-600 hover:shadow-2xl hover:shadow-blue-500/50 hover:scale-110 hover:text-white transition-all duration-300 group">View Services</Button>
               </Link>
             </div>
           </motion.div>
@@ -282,10 +282,10 @@ export default function Portfolio() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/contact">
-              <Button size="lg" className="bg-slate-900 hover:bg-slate-800 text-white font-semibold shadow-lg shadow-slate-900/30 hover:shadow-slate-900/50 transition">Request a Consulting Session</Button>
+              <Button size="lg" className="bg-slate-900 hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-600 text-white font-semibold shadow-lg shadow-slate-900/30 hover:shadow-2xl hover:shadow-blue-500/50 transition-all duration-300 hover:scale-110">Request a Consulting Session</Button>
             </Link>
             <Link href="/services">
-              <Button size="lg" variant="outline" className="border-slate-900 text-slate-900 hover:bg-slate-900/5 transition">View Services</Button>
+              <Button size="lg" variant="outline" className="border-2 border-[#2D2D2D] text-[#2D2D2D] hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-600 hover:text-white hover:border-transparent shadow-md hover:shadow-xl hover:scale-110 transition-all duration-300">View Services</Button>
             </Link>
           </div>
         </div>

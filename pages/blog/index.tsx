@@ -12,7 +12,7 @@ const blogPosts = [
     title: 'Getting Started with AI in Your Small Business',
     excerpt: 'Practical strategies for implementing AI without overwhelming your team or breaking the bank. Learn where to start and what to avoid.',
     category: 'AI Consulting',
-    date: '2024-01-15',
+    date: '2025-09-15',
     readTime: '5 min read',
   },
   {
@@ -20,7 +20,7 @@ const blogPosts = [
     title: 'Modernizing Legacy Systems: A Practical Guide',
     excerpt: 'How to approach system modernization strategically, minimize risk, and ensure business continuity throughout the transition.',
     category: 'Systems',
-    date: '2024-01-08',
+    date: '2025-10-08',
     readTime: '7 min read',
   },
 ]

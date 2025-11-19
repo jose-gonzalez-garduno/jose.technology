@@ -58,7 +58,7 @@ export default function Home() {
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-cyan-500/30 to-blue-500/30 border-2 border-cyan-400/50 backdrop-blur-sm shadow-lg shadow-cyan-500/30 hover:shadow-xl hover:shadow-cyan-400/40 transition-all duration-300"
             >
               <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse shadow-lg shadow-green-500/70" />
-              <span className="text-sm md:text-base font-bold text-cyan-100 tracking-wide">Available for Projects</span>
+              <span className="text-sm md:text-base font-bold text-white tracking-wide">Available for Projects</span>
               <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse shadow-lg shadow-green-500/70" />
             </motion.div>
 
@@ -86,7 +86,7 @@ export default function Home() {
                 </Button>
               </Link>
               <Link href="/#how-we-work">
-              <Button size="lg" className="bg-cyan-500 hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-600 text-slate-900 hover:text-white text-white font-semibold shadow-lg hover:shadow-2xl hover:shadow-blue-500/50 hover:scale-110 transition-all duration-300 group">
+              <Button size="lg" className="bg-slate-900 hover:bg-gradient-to-r hover:from-blue-600 font-semibold hover:to-purple-600 text-white shadow-lg hover:shadow-2xl hover:shadow-blue-500/50 transition-all duration-300 hover:scale-110">
                   How We Work
                 </Button>
               </Link>
