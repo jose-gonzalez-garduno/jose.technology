@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useCallback } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
@@ -9,6 +9,14 @@ import { motion, AnimatePresence } from 'framer-motion'
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const router = useRouter()
+
+  const toggleMobileMenu = useCallback(() => {
+    setMobileMenuOpen(prev => !prev)
+  }, [])
+
+  const closeMobileMenu = useCallback(() => {
+    setMobileMenuOpen(false)
+  }, [])
 
   const navItems = [
     { label: 'Services', path: '/services' },
@@ -65,22 +73,23 @@ export function Header() {
         </nav>
 
         <button
-          className="md:hidden p-2 hover:bg-accent/10 rounded-lg transition-colors"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          className="md:hidden p-2 hover:bg-accent/10 rounded-lg transition-colors touch-manipulation"
+          onClick={toggleMobileMenu}
           aria-label="Toggle menu"
+          aria-expanded={mobileMenuOpen}
         >
           {mobileMenuOpen ? <X size={24} /> : <List size={24} />}
         </button>
       </div>
 
-      <AnimatePresence>
+      <AnimatePresence mode="wait">
         {mobileMenuOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.15, ease: "easeOut" }}
-            className="md:hidden border-t border-border/40 bg-background/95 backdrop-blur-xl overflow-hidden"
+            className="md:hidden border-t border-border/40 bg-background/95 backdrop-blur-xl overflow-hidden will-change-transform"
           >
             <nav className="flex flex-col gap-1 p-4">
               {navItems.map((item) => (
@@ -92,12 +101,12 @@ export function Header() {
                       ? 'bg-primary/10 text-primary'
                       : 'text-muted-foreground hover:text-foreground hover:bg-accent/10'
                   }`}
-                  onClick={() => setMobileMenuOpen(false)}
+                  onClick={closeMobileMenu}
                 >
                   {item.label}
                 </Link>
               ))}
-              <Link href="/contact" onClick={() => setMobileMenuOpen(false)}>
+              <Link href="/contact" onClick={closeMobileMenu}>
                 <Button size="sm" className="w-full mt-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-700 hover:to-purple-700">Contact</Button>
               </Link>
             </nav>
